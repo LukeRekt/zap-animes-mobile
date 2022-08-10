@@ -9,6 +9,53 @@ export default function PageAnime(props){
             <View style={styles.animeCard}>
             <Text style={{color: "white", fontSize: 23, backgroundColor: "#181829", padding: 2, paddingBottom: 10, paddingTop: 10}}>{props.route.params.nome}</Text>
             <Image style={styles.imagem} source={{ uri: `http://192.168.0.103:3232/${props.route.params.imagem}`}}/>
+            <View style={styles.animeLancamento}>
+            <Text>Em Lancamento</Text>
+            </View>
+
+            <View style={styles.animeEpEsFi}>
+            
+                <View style={styles.animeEps}>
+                <Text style={styles.textoEps}>EPISÓDIOS</Text>
+                <Text>{props.route.params.episodios}</Text>
+                </View>
+
+                <View style={styles.animeEps}>
+                <Text style={styles.textoEps}>EPISÓDIOS</Text>
+                <Text>{props.route.params.especiais}</Text>
+                </View>
+
+                <View style={styles.animeEps}>
+                <Text style={styles.textoEps}>EPISÓDIOS</Text>
+                <Text>{props.route.params.filmes}</Text>
+                </View>
+
+            </View>
+
+            <View style={styles.animeEpProducers}>
+            
+            <View style={styles.animeAutor}>
+            <Text>Autor</Text>
+            <Text>{props.route.params.autor}</Text>
+            </View>
+
+            <View style={styles.animeDiretor}>
+            <Text>Diretor</Text>
+            <Text>{props.route.params.diretor}</Text>
+            </View>
+
+            <View style={styles.animeEstudio}>
+            <Text>Estúdio</Text>
+            <Text>{props.route.params.estudio}</Text>
+            </View>
+
+            <View style={styles.animeAno}>
+            <Text>Ano</Text>
+            <Text>{props.route.params.ano}</Text>
+            </View>
+
+        </View>
+           
             </View>
            
             <View style={styles.animeSinopse}>
@@ -47,7 +94,8 @@ const styles = StyleSheet.create({
         flex:1,
         flexDirection: "column",
         textAlign: "center",
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor: "#181829"
     },
     imagem:{
         height: 350,
@@ -56,6 +104,28 @@ const styles = StyleSheet.create({
         marginBottom: 10
         
     },
+    animeLancamento:{
+        backgroundColor: "red"
+    },
+    animeEpEsFi:{
+        flex:1,
+        flexDirection: "row",
+        width: "95%"
+    },
+    animeEps:{
+        backgroundColor: "rgba(255, 255, 255, .03)",
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        paddingBottom: 15,
+        paddingTop: 15,
+        marginRight: 5,
+        borderRadius: 4
+        
+    },
+    textoEps:{
+        color: "#ffbe63"
+    },
     animeSinopseTitulo:{
         fontSize: 30,
         color: "white",
@@ -63,7 +133,8 @@ const styles = StyleSheet.create({
     },
     animeSinopse:{
         backgroundColor:"#181829",
-        borderColor: "rgba(255, 255, 255, .5)"
+        borderColor: "rgba(255, 255, 255, .5)",
+        marginTop: 5,
         
     },
     animeSinopseTexto:{
