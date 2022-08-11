@@ -6,52 +6,54 @@ export default function PageAnime(props){
     return (
         <View style={styles.container}>
             <ScrollView contentContainerStyle={{flexDirection:'column'}}>
+            <View style={styles.animeTitulo}>
+            <Text style={{color: "white", fontSize: 23, textAlign: "center", paddingVertical: 10}}>{props.route.params.nome}</Text>
+            </View>
             <View style={styles.animeCard}>
-            <Text style={{color: "white", fontSize: 23, backgroundColor: "#181829", padding: 2, paddingBottom: 10, paddingTop: 10}}>{props.route.params.nome}</Text>
             <Image style={styles.imagem} source={{ uri: `http://192.168.0.103:3232/${props.route.params.imagem}`}}/>
             <View style={styles.animeLancamento}>
-            <Text>Em Lancamento</Text>
+            <Text style={styles.animeLancamentoText}>EM LANÇAMENTO</Text>
             </View>
 
             <View style={styles.animeEpEsFi}>
             
                 <View style={styles.animeEps}>
                 <Text style={styles.textoEps}>EPISÓDIOS</Text>
-                <Text>{props.route.params.episodios}</Text>
+                <Text style={styles.textoEpsScn}>{props.route.params.episodios}</Text>
                 </View>
 
                 <View style={styles.animeEps}>
-                <Text style={styles.textoEps}>EPISÓDIOS</Text>
-                <Text>{props.route.params.especiais}</Text>
+                <Text style={styles.textoEps}>ESPECIAIS</Text>
+                <Text style={styles.textoEpsScn}>{props.route.params.especiais}</Text>
                 </View>
 
                 <View style={styles.animeEps}>
-                <Text style={styles.textoEps}>EPISÓDIOS</Text>
-                <Text>{props.route.params.filmes}</Text>
+                <Text style={styles.textoEps}>FILMES</Text>
+                <Text style={styles.textoEpsScn}>{props.route.params.filmes}</Text>
                 </View>
 
             </View>
 
             <View style={styles.animeEpProducers}>
             
-            <View style={styles.animeAutor}>
-            <Text>Autor</Text>
-            <Text>{props.route.params.autor}</Text>
+            <View style={styles.animeProducersTxtContainer}>
+            <Text style={styles.animeProducersTxt}>Autor</Text>
+            <Text style={styles.animeProducersTxtScnd}>{props.route.params.autor}</Text>
             </View>
 
-            <View style={styles.animeDiretor}>
-            <Text>Diretor</Text>
-            <Text>{props.route.params.diretor}</Text>
+            <View style={styles.animeProducersTxtContainer}>
+            <Text style={styles.animeProducersTxt}>Diretor</Text>
+            <Text style={styles.animeProducersTxtScnd}>{props.route.params.diretor}</Text>
             </View>
 
-            <View style={styles.animeEstudio}>
-            <Text>Estúdio</Text>
-            <Text>{props.route.params.estudio}</Text>
+            <View style={styles.animeProducersTxtContainer}>
+            <Text style={styles.animeProducersTxt}>Estúdio</Text>
+            <Text style={styles.animeProducersTxtScnd}>{props.route.params.estudio}</Text>
             </View>
 
-            <View style={styles.animeAno}>
-            <Text>Ano</Text>
-            <Text>{props.route.params.ano}</Text>
+            <View style={styles.animeProducersTxt}>
+            <Text style={styles.animeProducersTxt}>Ano</Text>
+            <Text style={styles.animeProducersTxtScnd}>{props.route.params.ano}</Text>
             </View>
 
         </View>
@@ -89,13 +91,26 @@ const styles = StyleSheet.create({
         backgroundColor: "#151538",
         height:"100%",
         flex:1,
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    animeTitulo:{
+        backgroundColor: "#181829",
+        marginBottom: 10,
+        borderRadius: 5,
+        borderColor: "rgba(255, 255, 255, .05)",
+        borderWidth: 1,
     },
     animeCard:{
         flex:1,
+        width: "98%",
         flexDirection: "column",
         textAlign: "center",
         alignItems: "center",
-        backgroundColor: "#181829"
+        backgroundColor: "#181829",
+        borderRadius: 5,
+        borderColor: "rgba(255, 255, 255, .05)",
+        borderWidth: 1,
     },
     imagem:{
         height: 350,
@@ -105,37 +120,73 @@ const styles = StyleSheet.create({
         
     },
     animeLancamento:{
-        backgroundColor: "red"
+        backgroundColor: "#ffbe63",
+        borderRadius: 5,
+        marginBottom: 10
+    },
+    animeLancamentoText:{
+        fontSize:32,
+        paddingHorizontal: 35,
+        paddingVertical: 5.
+
     },
     animeEpEsFi:{
         flex:1,
         flexDirection: "row",
-        width: "95%"
+        width: "98%"
     },
     animeEps:{
         backgroundColor: "rgba(255, 255, 255, .03)",
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        paddingBottom: 15,
-        paddingTop: 15,
         marginRight: 5,
-        borderRadius: 4
+        borderRadius: 4,
+        marginBottom: 10
         
     },
+    animeEpProducers:{
+        flex:1,
+        marginLeft: 0,
+        width: "95%"
+    },
+    animeProducersTxtContainer:{
+
+    },
+    animeProducersTxt:{
+        color: "#ffbe63",
+        marginBottom: 8,
+        
+    },
+    animeProducersTxtScnd:{
+        color: "rgba(255, 255, 255, .5)",
+        marginBottom: 8,
+        borderColor: "rgba(255, 255, 255, .05)",
+        borderBottomWidth: 1,
+    },
     textoEps:{
-        color: "#ffbe63"
+        color: "#ffbe63",
+        paddingTop: 15,
+    },
+    textoEpsScn:{
+        color:"#fff",
+        fontSize: 25,
+    },
+    animeSinopse:{
+        width: "98%",
+        backgroundColor:"#181829",
+        marginTop: 5,
+        borderRadius: 5,
+        borderColor: "rgba(255, 255, 255, .05)",
+        borderWidth: 1,
+        
+        
+        
     },
     animeSinopseTitulo:{
         fontSize: 30,
         color: "white",
         paddingLeft: 10
-    },
-    animeSinopse:{
-        backgroundColor:"#181829",
-        borderColor: "rgba(255, 255, 255, .5)",
-        marginTop: 5,
-        
     },
     animeSinopseTexto:{
         padding: 10,
