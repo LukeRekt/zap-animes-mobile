@@ -1,9 +1,54 @@
-import React from "react";
-import { View,Text, StyleSheet, Image, ScrollView } from "react-native";
+import axios from "axios";
+import { StatusBar } from "expo-status-bar";
+import React, { useEffect, useState } from "react";
+import { View,Text, StyleSheet, Image, ScrollView, SafeAreaView, SectionList } from "react-native";
+
+const DATA = [
+    {
+      title: "Main dishes",
+      data: ["Pizza", "Burger", "Risotto"]
+    },
+    {
+      title: "Sides",
+      data: ["French Fries", "Onion Rings", "Fried Shrimps"]
+    },
+    {
+      title: "Drinks",
+      data: ["Water", "Coke", "Beer"]
+    },
+    {
+      title: "Desserts",
+      data: ["Cheese Cake", "Ice Cream"]
+    }
+  ];
+
+ 
+
 
 
 export default function PageAnime(props){
+
+    const [posts, setPosts] = useState([])
+
+    useEffect(() => {
+      axios.get(`http://192.168.0.103:3232/getanim/episodios/${parseInt(props.route.params.id)}`)
+        .then(res => {
+          setPosts(res.data.episodios)
+          console.log(res.data.episodios)
+        })
+    }, [props.route.params])
+
+
+
+    const Item = ({ title }) => (
+        <View style={styles.item}>
+          <Text style={styles.title}>{title}</Text>
+        </View>
+      );
+
+
     return (
+        
         <View style={styles.container}>
             <ScrollView contentContainerStyle={{flexDirection:'column'}}>
             <View style={styles.animeTitulo}>
@@ -65,9 +110,9 @@ export default function PageAnime(props){
                 <Text style={styles.animeSinopseTexto}>{props.route.params.descricao}</Text>
             </View>
 
-            {console.log(props.route.params)}
+            {/* {console.log(props.route.params)} */}
             
-            <Text style={{color: "white"}}>{props.route.params.estudio}</Text>
+            {/* <Text style={{color: "white"}}>{props.route.params.estudio}</Text>
             <Text style={{color: "white"}}>{props.route.params.diretor}</Text>
             <Text style={{color: "white"}}>{props.route.params.autor}</Text>
             <Text style={{color: "white"}}>{props.route.params.ano}</Text>
@@ -78,7 +123,26 @@ export default function PageAnime(props){
             <Text style={{color: "white"}}>{props.route.params.filmes}</Text>
             <Text style={{color: "white"}}>{props.route.params.nota}</Text>
             <Text style={{color: "white"}}></Text>
-            <Text style={{color: "white"}}>{props.route.params.temas}</Text>
+            <Text style={{color: "white"}}>{props.route.params.temas}</Text> */}
+            <View style={styles.Episodios}>
+            {!posts ? (<View><Text>ERRO</Text></View>) : (
+            <View>
+                {posts.map((item, index) =>{
+                    return <Text>Episódios</Text>
+                })}
+                
+                
+                
+
+                
+           </View>
+
+                
+            )}
+
+
+                
+            </View>
             </ScrollView>
         </View>
         
@@ -191,5 +255,26 @@ const styles = StyleSheet.create({
     animeSinopseTexto:{
         padding: 10,
         color: "rgba(255, 255, 255, .5)",
-    }
+    },
+    Episodios:{
+        backgroundColor: "red"
+    },
+
+    header: {
+        fontSize: 32,
+        backgroundColor: "#fff"
+      },
+      containeraa: {
+        flex: 1,
+        paddingTop: StatusBar.currentHeight,
+        marginHorizontal: 16
+      },
+      item: {
+        backgroundColor: "#f9c2ff",
+        padding: 20,
+        marginVertical: 8
+      },
+      title: {
+        fontSize: 24
+      }
 })
