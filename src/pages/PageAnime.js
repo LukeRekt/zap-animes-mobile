@@ -2,6 +2,7 @@ import axios from "axios";
 import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useState } from "react";
 import { View,Text, StyleSheet, Image, ScrollView, SafeAreaView, SectionList } from "react-native";
+import AnimeEpisodes from "../components/AnimeEpisodes";
 
 const DATA = [
     {
@@ -28,16 +29,6 @@ const DATA = [
 
 export default function PageAnime(props){
 
-    const [posts, setPosts] = useState([])
-
-    useEffect(() => {
-      axios.get(`http://192.168.0.103:3232/getanim/episodios/${parseInt(props.route.params.id)}`)
-        .then(res => {
-          setPosts(res.data.episodios)
-          console.log(res.data.episodios)
-        })
-    }, [props.route.params])
-
 
 
     const Item = ({ title }) => (
@@ -45,6 +36,16 @@ export default function PageAnime(props){
           <Text style={styles.title}>{title}</Text>
         </View>
       );
+
+      function Teste(propsa){
+    
+        var indents = [];
+        for (var i = 0; i < propsa; i++) {
+          indents.push(<span className='indent' key={i}></span>);
+        }
+        console.log(indents)
+        return indents;
+      }
 
 
     return (
@@ -125,23 +126,16 @@ export default function PageAnime(props){
             <Text style={{color: "white"}}></Text>
             <Text style={{color: "white"}}>{props.route.params.temas}</Text> */}
             <View style={styles.Episodios}>
-            {!posts ? (<View><Text>ERRO</Text></View>) : (
+            {/* {!posta ? (<View><Text>ERRO</Text></View>) : (
             <View>
-                {posts.map((item, index) =>{
+
+                {posta.map((item, index) =>{
                     return <Text>Episódios</Text>
                 })}
-                
-                
-                
-
-                
-           </View>
-
-                
-            )}
-
-
-                
+                </View>
+                )} */}
+        {Teste(props.route.params.temporadas).map((post, index) =>
+              <AnimeEpisodes idAnime={props.route.params.id} temporada={index + 1}/>)}          
             </View>
             </ScrollView>
         </View>
