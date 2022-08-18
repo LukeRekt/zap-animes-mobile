@@ -135,7 +135,7 @@ export default function PageAnime(props){
                 </View>
                 )} */}
         {Teste(props.route.params.temporadas).map((post, index) =>
-              <AnimeEpisodes idAnime={props.route.params.id} temporada={index + 1}/>)}          
+              <AnimeEpisodes key={index} idAnime={props.route.params.id} temporada={index + 1}/>)}          
             </View>
             </ScrollView>
         </View>
@@ -251,7 +251,6 @@ const styles = StyleSheet.create({
         color: "rgba(255, 255, 255, .5)",
     },
     Episodios:{
-        backgroundColor: "red"
     },
 
     header: {

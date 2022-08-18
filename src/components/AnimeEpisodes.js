@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { View,Text } from "react-native";
+import { View,Text, StyleSheet } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 
 
@@ -15,22 +15,40 @@ export default function AnimeEpisodes(props){
         })
     }, [props])
     return (
-        <View style={{backgroundColor: "grey"}}>
+        <View style={styles.container}>
             {console.log(props)}
-            <Text style={{color: "white",}}>Temporada: {props.temporada}</Text>
+            <Text style={{color: "white", fontSize: 30, textAlign: "center"}}>Temporada: {props.temporada}</Text>
             {posta.map((post, index) =>
-            <View index={index}>
-                <Text>{post.numero}</Text>
+            <View style={styles.containerEp} index={index}>
+                <Text style={styles.epNumero}>{post.numero} {post.nome}</Text>
             </View>
             
             )}
-
-
-
-            
-            
         </View>
         
     )
 
 }
+const styles = StyleSheet.create({
+    container:{
+        backgroundColor: "#181829",
+        width: "98%",
+        marginTop: 5,
+        borderRadius: 5,
+        borderColor: "rgba(255, 255, 255, .05)",
+        borderWidth: 1,
+    },
+    containerEp:{
+        backgroundColor:"white",
+        marginBottom: 2,
+        marginTop: 5,
+        borderRadius: 5,
+        borderColor: "rgba(255, 255, 255, .05)",
+        borderWidth: 1,
+    },
+    epNumero: {
+        padding: 8
+    }
+
+
+})
