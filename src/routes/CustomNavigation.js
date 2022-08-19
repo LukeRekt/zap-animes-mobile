@@ -6,6 +6,7 @@ import NewAnimes from "../pages/NewAnimes";
 import Discovery from "../pages/Discovery";
 import Profile from "../pages/Profile";
 import PageAnime from "../pages/PageAnime";
+import PageEpisode from "../pages/PageEpisode";
 
 
 
@@ -19,6 +20,7 @@ const MainStackNavigator = () => {
       })}>
       <Stack.Screen name="HomeScreen" component={Home} />
       <Stack.Screen name="AnimeScreen" component={PageAnime} />
+      <Stack.Screen name="AnimeEpisodeScreen" component={PageEpisode} />
     </Stack.Navigator>
   );
 }

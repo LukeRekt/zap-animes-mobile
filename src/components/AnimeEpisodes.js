@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { View,Text, StyleSheet } from "react-native";
+import { View,Text, StyleSheet, TouchableOpacity, Button } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-
+import { useNavigation } from '@react-navigation/native';
 
 export default function AnimeEpisodes(props){
+    const navigation = useNavigation();
+
     const [posta, setPosta] = useState([])
 
     useEffect(() => {
@@ -16,12 +18,11 @@ export default function AnimeEpisodes(props){
     }, [props])
     return (
         <View style={styles.container}>
-            {console.log(props)}
             <Text style={{color: "white", fontSize: 30, textAlign: "center"}}>Temporada: {props.temporada}</Text>
             {posta.map((post, index) =>
-            <View style={styles.containerEp} index={index}>
+            <TouchableOpacity onPress={() => navigation.navigate("AnimeEpisodeScreen", post)} style={styles.containerEp} index={index}>
                 <Text style={styles.epNumero}>{post.numero} {post.nome}</Text>
-            </View>
+            </TouchableOpacity>
             
             )}
         </View>
