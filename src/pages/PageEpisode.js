@@ -3,6 +3,8 @@ import VideoPlayer from "../components/VideoPlayer";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Feather } from '@expo/vector-icons'; 
 import { useEffect, useState } from "react";
+import { useNavigation } from '@react-navigation/native';
+import { FontAwesome5 } from '@expo/vector-icons'; 
 import axios from "axios";
 
 
@@ -10,7 +12,7 @@ import axios from "axios";
 
 export default function PageEpisode(props){
   const [postab, setPostab] = useState([])
-
+  const navigation = useNavigation();
   useEffect(() => {
     axios.get(`http://192.168.0.103:3232/getanim/episodios/${props.route.params.temporada}/${props.route.params.id}/${props.route.params.numero + 1}`)
       .then(res => {
@@ -36,19 +38,20 @@ export default function PageEpisode(props){
 
           <View style={styles.proximoEpContainer}>
           <Text style={styles.proximoEpTexto}>Proximo Episódio</Text>
-          <TouchableOpacity style={styles.proximoEpCard}>
-            
+
+          {postab == null ? (<View style={styles.proximoEpCardAcabou}><Text style={styles.proximoEpCardAcabouTexto}>SEM NOVOS EPISÓDIOS <FontAwesome5 name="sad-cry" size={24} color="#ffffffd4" /></Text></View>) : (
+          <TouchableOpacity onPress={() => navigation.navigate("AnimeEpisodeScreen", postab)} style={styles.proximoEpCard}>
           <View style={styles.proximoEpCardEsquerda}>
           <View style={styles.proximoEpCardOver}>
             <Feather name="play" size={30} color="#ffffffd4" />
             </View>
-            <Image style={styles.proximoEpCardImagem} source={ { uri: `https://stc.animestc.com/1619280203756-image-thumbnail.jpg`}} />
+            <Image style={styles.proximoEpCardImagem} source={ { uri: `http://192.168.0.103:3232/${postab.animeImagem}`}} />
           </View>
             
             <View style={styles.proximoEpCardTextos}>
             <Text style={styles.proximoEpCardTexto}>T{postab.temporada} E{postab.numero} - {postab.nome}</Text>
             </View>
-          </TouchableOpacity>
+          </TouchableOpacity>)}
           <TouchableOpacity onPress={() => alert("EM DESENVOLVIMENTO!!!")}>
           <Text style={styles.todosEpTexto} >TODOS OS EPISÓDIOS</Text>
           </TouchableOpacity>
@@ -118,6 +121,18 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginBottom: 10,
       
+      },
+      proximoEpCardAcabou:{
+        backgroundColor: "#2a2a3d",
+        width: "95%",
+        height:60,
+        
+      },
+      proximoEpCardAcabouTexto:{
+        color:"#ffffffd4",
+        textAlign: "center",
+        paddingTop: 15,
+        fontSize: 21
       },
       proximoEpCard:{
         overflow: "hidden",

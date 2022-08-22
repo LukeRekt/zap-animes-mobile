@@ -21,7 +21,7 @@ export default function AnimeEpisodes(props){
             <Text style={{color: "white", fontSize: 30, textAlign: "center"}}>Temporada: {props.temporada}</Text>
             {posta.map((post, index) =>
             <TouchableOpacity onPress={() => navigation.navigate("AnimeEpisodeScreen", post)} style={styles.containerEp} index={index}>
-                <Text style={styles.epNumero}>{post.numero} {post.nome}</Text>
+                <Text style={styles.epNumero}>{post.numero} - {post.nome}</Text>
             </TouchableOpacity>
             
             )}
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
     },
     containerEp:{
-        backgroundColor:"white",
+        backgroundColor: "#2b2b38",
         marginBottom: 2,
         marginTop: 5,
         borderRadius: 5,
@@ -48,7 +48,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
     },
     epNumero: {
-        padding: 8
+        padding: 15,
+        color: "white"
     }
 
 
