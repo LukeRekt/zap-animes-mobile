@@ -3,29 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useState } from "react";
 import { View,Text, StyleSheet, Image, ScrollView, SafeAreaView, SectionList } from "react-native";
 import AnimeEpisodes from "../components/AnimeEpisodes";
-
-const DATA = [
-    {
-      title: "Main dishes",
-      data: ["Pizza", "Burger", "Risotto"]
-    },
-    {
-      title: "Sides",
-      data: ["French Fries", "Onion Rings", "Fried Shrimps"]
-    },
-    {
-      title: "Drinks",
-      data: ["Water", "Coke", "Beer"]
-    },
-    {
-      title: "Desserts",
-      data: ["Cheese Cake", "Ice Cream"]
-    }
-  ];
-
- 
-
-
+import {REACT_APP_API_URL} from '@env'
 
 export default function PageAnime(props){
 

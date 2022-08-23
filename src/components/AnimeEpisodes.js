@@ -14,7 +14,7 @@ export default function AnimeEpisodes(props){
       axios.get(`${REACT_APP_API_URL}/getanim/episodios/${props.temporada}/${props.idAnime}`)
         .then(res => {
           setPosta(res.data.episodios)
-        
+        console.log(posta)
         })
     }, [props, REACT_APP_API_URL])
     return (

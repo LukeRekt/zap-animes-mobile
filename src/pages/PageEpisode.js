@@ -45,7 +45,7 @@ export default function PageEpisode(props){
           <View style={styles.proximoEpCardOver}>
             <Feather name="play" size={30} color="#ffffffd4" />
             </View>
-            <Image style={styles.proximoEpCardImagem} source={ { uri: `http://192.168.0.103:3232/${postab.animeImagem}`}} />
+            <Image style={styles.proximoEpCardImagem} source={ { uri: `${REACT_APP_API_URL}/${postab.animeImagem}`}} />
           </View>
             
             <View style={styles.proximoEpCardTextos}>
