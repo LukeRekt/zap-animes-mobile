@@ -20,7 +20,7 @@ export default function AnimeEpisodes(props){
         <View style={styles.container}>
             <Text style={{color: "white", fontSize: 30, textAlign: "center"}}>Temporada: {props.temporada}</Text>
             {posta.map((post, index) =>
-            <TouchableOpacity onPress={() => navigation.navigate("AnimeEpisodeScreen", post)} style={styles.containerEp} index={index}>
+            <TouchableOpacity onPress={() => navigation.navigate("AnimeEpisodeScreen", post)} style={styles.containerEp} key={index}>
                 <Text style={styles.epNumero}>{post.numero} - {post.nome}</Text>
             </TouchableOpacity>
             

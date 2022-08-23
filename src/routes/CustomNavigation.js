@@ -7,6 +7,7 @@ import Discovery from "../pages/Discovery";
 import Profile from "../pages/Profile";
 import PageAnime from "../pages/PageAnime";
 import PageEpisode from "../pages/PageEpisode";
+import Header from "../components/Header";
 
 
 
@@ -16,11 +17,16 @@ const MainStackNavigator = () => {
   return (
     <Stack.Navigator
     screenOptions={({ route }) => ({
-        headerShown: false,
+        headerShown: true,
+        headerStyle: {
+          backgroundColor: "#191828",
+        },
+        headerTintColor: 'white',
+        headerTitle: () => <Header/>
       })}>
       <Stack.Screen name="HomeScreen" component={Home} />
       <Stack.Screen name="AnimeScreen" component={PageAnime} />
-      <Stack.Screen name="AnimeEpisodeScreen" component={PageEpisode} />
+      <Stack.Screen name="AnimeEpisodeScreen" component={PageEpisode} options={{ headerShown: false }}/>
     </Stack.Navigator>
   );
 }
