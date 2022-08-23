@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useNavigation } from '@react-navigation/native';
 import { FontAwesome5 } from '@expo/vector-icons'; 
 import axios from "axios";
-
+import {REACT_APP_API_URL} from '@env'
 
 
 
@@ -14,18 +14,18 @@ export default function PageEpisode(props){
   const [postab, setPostab] = useState([])
   const navigation = useNavigation();
   useEffect(() => {
-    axios.get(`http://192.168.0.103:3232/getanim/episodios/${props.route.params.temporada}/${props.route.params.id}/${props.route.params.numero + 1}`)
+    axios.get(`${REACT_APP_API_URL}/getanim/episodios/${props.route.params.temporada}/${props.route.params.id}/${props.route.params.numero + 1}`)
       .then(res => {
         setPostab(res.data.episodios)
       console.log(postab)
       })
-  }, [props])
+  }, [props, REACT_APP_API_URL])
 
 
     return (
         <View style={styles.container}>
           
-          <VideoPlayer video={`http://192.168.0.103/${props.route.params.video}`}/>
+          <VideoPlayer video={`${REACT_APP_API_URL}/${props.route.params.video}`}/>
           <View style={styles.animeInfos}>
           <Text style={styles.texto}>{props.route.params.nomeAnime}</Text>
           <Text style={styles.textoEp}>T{props.route.params.temporada} E{props.route.params.numero} - {props.route.params.nome}</Text>

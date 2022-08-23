@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {Button,TouchableOpacity, View,Text, StyleSheet, Dimensions, Image } from "react-native";
-
+import {REACT_APP_API_URL} from '@env'
 import Carousel from "react-native-snap-carousel";
 
 const SLIDER_WIDTH = Dimensions.get('window').width
@@ -32,12 +32,11 @@ export default function Home({navigation}){
     
     const [posts, setPosts] = useState();
     useEffect(() => {
-        axios.get(`http://192.168.0.103:3232/getanim`)
+        axios.get(`${REACT_APP_API_URL}/getanim`)
             .then(res => {
                 setPosts(res.data.animes)
-                
             })
-    }, [])
+    }, [REACT_APP_API_URL])
 
     function _onPressCarousel(item){
         navigation.navigate("AnimeScreen", item);

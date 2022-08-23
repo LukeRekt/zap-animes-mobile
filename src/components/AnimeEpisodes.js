@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { View,Text, StyleSheet, TouchableOpacity, Button } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from '@react-navigation/native';
+import {REACT_APP_API_URL} from '@env'
 
 export default function AnimeEpisodes(props){
     const navigation = useNavigation();
@@ -10,12 +11,12 @@ export default function AnimeEpisodes(props){
     const [posta, setPosta] = useState([])
 
     useEffect(() => {
-      axios.get(`http://192.168.0.103:3232/getanim/episodios/${props.temporada}/${props.idAnime}`)
+      axios.get(`${REACT_APP_API_URL}/getanim/episodios/${props.temporada}/${props.idAnime}`)
         .then(res => {
           setPosta(res.data.episodios)
         
         })
-    }, [props])
+    }, [props, REACT_APP_API_URL])
     return (
         <View style={styles.container}>
             <Text style={{color: "white", fontSize: 30, textAlign: "center"}}>Temporada: {props.temporada}</Text>
