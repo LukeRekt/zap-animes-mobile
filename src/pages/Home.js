@@ -45,7 +45,7 @@ export default function Home({navigation}){
         return (
             <TouchableOpacity onPress={() => _onPressCarousel(item)} style={styles.cardCarousel}
              key={index}>
-                <Image style={styles.image} source={{ uri: `http://192.168.0.103:3232/${item.imagem}`}}/>
+                <Image style={styles.image} source={{ uri: `${REACT_APP_API_URL}/${item.imagem}`}}/>
                 {console.log(item.imagem)}
             </TouchableOpacity>
         )

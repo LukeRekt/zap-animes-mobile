@@ -56,7 +56,7 @@ export default function PageAnime(props){
             <Text style={{color: "white", fontSize: 23, textAlign: "center", paddingVertical: 10}}>{props.route.params.nome}</Text>
             </View>
             <View style={styles.animeCard}>
-            <Image style={styles.imagem} source={{ uri: `http://192.168.0.103:3232/${props.route.params.imagem}`}}/>
+            <Image style={styles.imagem} source={{ uri: `${REACT_APP_API_URL}/${props.route.params.imagem}`}}/>
             <View style={styles.animeLancamento}>
             <Text style={styles.animeLancamentoText}>EM LANÇAMENTO</Text>
             </View>
