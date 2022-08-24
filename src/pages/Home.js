@@ -1,11 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {Button,TouchableOpacity, View,Text, StyleSheet, Dimensions, Image } from "react-native";
+import {Button,TouchableOpacity, View,Text, StyleSheet, Dimensions, Image, ScrollView } from "react-native";
 import {REACT_APP_API_URL} from '@env'
 import Carousel from "react-native-snap-carousel";
 
 const SLIDER_WIDTH = Dimensions.get('window').width
-const ITEM_WIDTH = SLIDER_WIDTH * 0.60
+const ITEM_WIDTH = SLIDER_WIDTH * 0.45
 
 
 
@@ -48,12 +48,19 @@ export default function Home({navigation}){
              key={index}>
                 <Image style={styles.image} source={{ uri: `${REACT_APP_API_URL}/${item.imagem}`}}/>
                 {console.log(item.imagem)}
+                <View style={styles.animeInfos}>
+                    <Text style={styles.animeInfosTexto}>{item.nome}</Text>
+                    <Text style={styles.animeInfosTextoBaixo}>Série・Dublado</Text>
+                </View>
             </TouchableOpacity>
         )
     }
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             {/* <Text style={{color: "white"}}>Home</Text> */}
+            <Text style={styles.texto}>OS MAIS TOPS DO ZAP</Text>
+           <View style={styles.containerEpisodios}>
+            
             <Carousel
                 data={posts}
                 renderItem={carouselCardItem}
@@ -62,7 +69,10 @@ export default function Home({navigation}){
                 useScrollView={true}
                 
             />
+            </View>
             <Text style={styles.texto}>OS MAIS TOPS DO ZAP</Text>
+            <View style={styles.containerEpisodios}>
+            
              <Carousel
                 data={posts}
                 renderItem={carouselCardItem}
@@ -70,10 +80,12 @@ export default function Home({navigation}){
                 itemWidth={ITEM_WIDTH}
                 useScrollView={true}
             />
+            </View>
             {/* <Button
             onPress={() => navigation.navigate('Home')}
             >Teste</Button> */}
-        </View>
+            
+        </ScrollView>
         
     )
 
@@ -81,24 +93,38 @@ export default function Home({navigation}){
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
         backgroundColor: "#151538",
-        
         paddingTop: 30
+    },
+    containerEpisodios:{
     },
     cardCarousel:{
         width: ITEM_WIDTH,
+        marginBottom: 0,
     },
     image:{
         
         height: 250,
-        borderRadius: 8,
+        borderTopLeftRadius: 8,
+        borderTopRightRadius: 8
+    },
+    animeInfos:{
+        backgroundColor: "#2a2a3d",
+
+    },
+    animeInfosTexto:{
+        color: "white",
+        margin: 5,
+        fontSize: 18
+    },
+    animeInfosTextoBaixo:{
+        color: "#ffbe63",
+        margin: 5,
     },
     texto:{
-        textAlign: 'center',
         color: 'white',
-        marginTop: 1,
-        marginBottom: 30,
+        marginLeft: 70,
+        marginBottom: 10,
         fontSize: 20,
     }
 })
