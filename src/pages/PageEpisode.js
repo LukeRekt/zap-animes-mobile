@@ -17,7 +17,7 @@ export default function PageEpisode(props){
     axios.get(`${REACT_APP_API_URL}/getanim/episodios/${props.route.params.temporada}/${props.route.params.id}/${props.route.params.numero + 1}`)
       .then(res => {
         setPostab(res.data.episodios)
-      console.log(postab)
+      console.log(REACT_APP_API_URL)
       })
   }, [props, REACT_APP_API_URL])
 
