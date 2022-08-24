@@ -20,6 +20,7 @@ export default function AnimeEpisodes(props){
     }, [props, REACT_APP_API_URL])
     return (
         <View style={styles.container}>
+          {console.log(REACT_APP_API_URL)}
             <Text style={styles.temporadaTexto}>{props.temporada}ª Temporada - Nome da temporada</Text>
             {posta.map((post, index) =>
             <TouchableOpacity onPress={() => navigation.navigate("AnimeEpisodeScreen", post)} style={styles.proximoEpCard} key={index}>

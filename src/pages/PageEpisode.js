@@ -24,7 +24,7 @@ export default function PageEpisode(props){
 
     return (
         <View style={styles.container}>
-          
+          {console.log(REACT_APP_API_URL)}
           <VideoPlayer video={`${REACT_APP_API_URL}/${props.route.params.video}`}/>
           <View style={styles.animeInfos}>
           <Text style={styles.texto}>{props.route.params.nomeAnime}</Text>
