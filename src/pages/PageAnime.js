@@ -30,6 +30,7 @@ export default function PageAnime(props){
         
         <View style={styles.container}>
             {console.log(REACT_APP_API_URL)}
+            {console.log(REACT_APP_API_URL)}
             <ScrollView contentContainerStyle={{flexDirection:'column'}}>
             <View style={styles.animeTitulo}>
             <Text style={{color: "white", fontSize: 23, textAlign: "center", paddingVertical: 10}}>{props.route.params.nome}</Text>

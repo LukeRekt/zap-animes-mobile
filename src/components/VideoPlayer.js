@@ -2,13 +2,22 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {Button,TouchableOpacity, View,Text, StyleSheet, Dimensions, Image } from "react-native";
 import { Video, AVPlaybackStatus } from 'expo-av';
-
-
-
-
-
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 export default function VideoPlayer(props){
+
+//https://helpincoding.com/rotate-expo-video-player-in-full-screen-mode/
+  function setOrientation() {
+    if (Dimensions.get('window').height > Dimensions.get('window').width) {
+      ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
+    }
+    else {
+      ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
+    }
+  }
+
+
+
     const video = React.useRef(null);
     const [status, setStatus] = React.useState({});
      
@@ -20,6 +29,7 @@ export default function VideoPlayer(props){
           source={{
             uri: `${props.video}`,
           }}
+          onFullscreenUpdate={setOrientation}
           useNativeControls
           resizeMode="contain"
           isLooping
@@ -31,7 +41,6 @@ export default function VideoPlayer(props){
 }
 
 const styles = StyleSheet.create({
-
       video: {
         alignSelf: 'center',
         width: "100%",

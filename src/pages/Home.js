@@ -35,7 +35,6 @@ export default function Home({navigation}){
         axios.get(`${REACT_APP_API_URL}/getanim`)
             .then(res => {
                 setPosts(res.data.animes)
-                
             })
     }, [REACT_APP_API_URL])
 
