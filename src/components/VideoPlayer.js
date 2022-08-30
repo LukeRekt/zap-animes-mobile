@@ -29,7 +29,7 @@ export default function VideoPlayer(props){
           source={{
             uri: `${props.video}`,
           }}
-          onFullscreenUpdate={setOrientation}
+           onFullscreenUpdate={setOrientation}
           useNativeControls
           resizeMode="contain"
           isLooping
@@ -41,14 +41,13 @@ export default function VideoPlayer(props){
 }
 
 const styles = StyleSheet.create({
+      container:{
+      },
       video: {
         alignSelf: 'center',
         width: "100%",
         height: 200,
+        
       },
-      buttons: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-      },
+
 })

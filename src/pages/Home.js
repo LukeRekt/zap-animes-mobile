@@ -47,6 +47,8 @@ export default function Home({navigation}){
              key={index}>
                 <Image style={styles.image} source={{ uri: `${REACT_APP_API_URL}/${item.imagem}`}}/>
                 {console.log(REACT_APP_API_URL)}
+                {console.log(REACT_APP_API_URL)}
+                {console.log(REACT_APP_API_URL)}
                 <View style={styles.animeInfos}>
                     <Text style={styles.animeInfosTexto}>{item.nome}</Text>
                     <Text style={styles.animeInfosTextoBaixo}>Série・Dublado</Text>

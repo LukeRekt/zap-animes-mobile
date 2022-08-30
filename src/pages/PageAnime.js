@@ -6,7 +6,18 @@ import AnimeEpisodes from "../components/AnimeEpisodes";
 import {REACT_APP_API_URL} from '@env'
 
 export default function PageAnime(props){
+    
 
+    const [temporada, setTemporada] = useState()
+
+    useEffect(() => {
+      axios.get(`${REACT_APP_API_URL}/gettemporada/${props.route.params.id}`)
+        .then(res => {
+        setTemporada(res.data.temporadas)
+        console.log(REACT_APP_API_URL)
+        console.log(temporada)
+        })
+    }, [props, REACT_APP_API_URL])
 
 
     const Item = ({ title }) => (
@@ -30,7 +41,8 @@ export default function PageAnime(props){
         
         <View style={styles.container}>
             {console.log(REACT_APP_API_URL)}
-            {console.log(REACT_APP_API_URL)}
+                {console.log(REACT_APP_API_URL)}
+                {console.log(REACT_APP_API_URL)}
             <ScrollView contentContainerStyle={{flexDirection:'column'}}>
             <View style={styles.animeTitulo}>
             <Text style={{color: "white", fontSize: 23, textAlign: "center", paddingVertical: 10}}>{props.route.params.nome}</Text>
@@ -114,8 +126,8 @@ export default function PageAnime(props){
                 })}
                 </View>
                 )} */}
-        {Teste(props.route.params.temporadas).map((post, index) =>
-              <AnimeEpisodes key={index} idAnime={props.route.params.id} temporada={index + 1}/>)}          
+        {temporada.map((post, index) =>
+              <AnimeEpisodes key={index} idAnime={props.route.params.id} temporada={post.temporadaAnime} nomeTemporada={post.nomeTemporada}/>)}          
             </View>
             </ScrollView>
         </View>
