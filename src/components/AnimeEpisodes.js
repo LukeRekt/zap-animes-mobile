@@ -21,6 +21,7 @@ export default function AnimeEpisodes(props){
     return (
         <View style={styles.container}>
           {console.log(REACT_APP_API_URL)}
+          
           {console.log(REACT_APP_API_URL)}
             <Text style={styles.temporadaTexto}>{props.temporada}ª Temporada - {props.nomeTemporada}</Text>
             {posta.map((post, index) =>

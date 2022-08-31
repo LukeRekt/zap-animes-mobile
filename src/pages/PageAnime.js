@@ -126,8 +126,9 @@ export default function PageAnime(props){
                 })}
                 </View>
                 )} */}
-        {temporada.map((post, index) =>
-              <AnimeEpisodes key={index} idAnime={props.route.params.id} temporada={post.temporadaAnime} nomeTemporada={post.nomeTemporada}/>)}          
+                {!temporada ? (<View><Text style={styles.animeSinopseTitulo}>Episódios indisponíveis</Text></View>) : (temporada.map((post, index) =>
+              <AnimeEpisodes key={index} idAnime={props.route.params.id} temporada={post.temporadaAnime} nomeTemporada={post.nomeTemporada}/>)    )}
+              
             </View>
             </ScrollView>
         </View>
