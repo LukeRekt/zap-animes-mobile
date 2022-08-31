@@ -1,11 +1,15 @@
 import React from "react";
 import { View,Text, StyleSheet, Image } from "react-native";
 import { Foundation } from '@expo/vector-icons'; 
-
+import { useFonts } from 'expo-font';
 export default function EmBreve(){
+    const [fontsLoaded] = useFonts({
+        'Montserrat': require('../../assets/Montserrat-Light.ttf'),
+      });
+
     return (
         <View style={styles.header}>
-            <Text style={styles.headerTexto}>EM-BREVE</Text>
+            <Text style={styles.headerTexto}>ZAP RECOMENDA</Text>
             <View style={styles.imagemContainer}>
                 <View style={styles.imagemOverlay}>
                 <Text style={styles.imagemOverlayTexto}>Mamahaha no Tsurego ga Moto Kano datta</Text>
@@ -30,13 +34,19 @@ const styles = StyleSheet.create({
     margin: 0,
     width: '100%',
     height: 230,
-     backgroundColor:"#191828",
+    //  backgroundColor:"#191828",
  
 },
 headerTexto:{
     color: "#ffbe63",
     textAlign: "center",
     fontSize: 25,
+    fontFamily: "Montserrat",
+    fontWeight: "200"
+},
+imagemContainer:{
+width: "95%",
+marginLeft: "2.5%"
 },
 imagemOverlay:{
     position: "absolute",
@@ -51,6 +61,8 @@ imagemOverlayTexto:{
     textShadowColor: "black",
     textShadowRadius: 4,
     marginLeft: 5,
+    fontFamily: "Montserrat",
+    fontWeight: "800"
 },
 botaoTrailer:{
     width: 100,
