@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import {Button,TouchableOpacity, View,Text, StyleSheet, Dimensions, Image, ScrollView } from "react-native";
 import {REACT_APP_API_URL} from '@env'
 import Carousel from "react-native-snap-carousel";
+import EmBreve from "../components/EmBreve";
 
 const SLIDER_WIDTH = Dimensions.get('window').width
 const ITEM_WIDTH = SLIDER_WIDTH * 0.45
@@ -58,6 +59,7 @@ export default function Home({navigation}){
     }
     return (
         <ScrollView style={styles.container}>
+            <EmBreve/>
             {/* <Text style={{color: "white"}}>Home</Text> */}
             <Text style={styles.texto}>OS MAIS TOPS DO ZAP</Text>
            <View style={styles.containerEpisodios}>
@@ -125,6 +127,7 @@ const styles = StyleSheet.create({
     texto:{
         color: 'white',
         marginLeft: 70,
+        marginTop: 15,
         marginBottom: 10,
         fontSize: 20,
     }
