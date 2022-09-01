@@ -1,59 +1,26 @@
 import React from "react";
-import { View,Text, StyleSheet, Image } from "react-native";
+import { View,Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Foundation } from '@expo/vector-icons'; 
-import {
-    useFonts,
-    Montserrat_100Thin,
-    Montserrat_200ExtraLight,
-    Montserrat_300Light,
-    Montserrat_400Regular,
-    Montserrat_500Medium,
-    Montserrat_600SemiBold,
-    Montserrat_700Bold,
-    Montserrat_800ExtraBold,
-    Montserrat_900Black,
-    Montserrat_100Thin_Italic,
-    Montserrat_200ExtraLight_Italic,
-    Montserrat_300Light_Italic,
-    Montserrat_400Regular_Italic,
-    Montserrat_500Medium_Italic,
-    Montserrat_600SemiBold_Italic,
-    Montserrat_700Bold_Italic,
-    Montserrat_800ExtraBold_Italic,
-    Montserrat_900Black_Italic,
-  } from '@expo-google-fonts/montserrat';
+import { LinearGradient } from 'expo-linear-gradient';
 export default function EmBreve(){
-    let [fontsLoaded] = useFonts({
-        Montserrat_100Thin,
-        Montserrat_200ExtraLight,
-        Montserrat_300Light,
-        Montserrat_400Regular,
-        Montserrat_500Medium,
-        Montserrat_600SemiBold,
-        Montserrat_700Bold,
-        Montserrat_800ExtraBold,
-        Montserrat_900Black,
-        Montserrat_100Thin_Italic,
-        Montserrat_200ExtraLight_Italic,
-        Montserrat_300Light_Italic,
-        Montserrat_400Regular_Italic,
-        Montserrat_500Medium_Italic,
-        Montserrat_600SemiBold_Italic,
-        Montserrat_700Bold_Italic,
-        Montserrat_800ExtraBold_Italic,
-        Montserrat_900Black_Italic,
-      });
+
 
 
     return (
         <View style={styles.header}>
             <Text style={styles.headerTexto}>ZAP RECOMENDA</Text>
             <View style={styles.imagemContainer}>
+                
                 <View style={styles.imagemOverlay}>
+                <LinearGradient
+        // Background Linear Gradient
+        colors={['rgba(0,0,0,0.8)', 'transparent']}
+        style={styles.background}
+      />
                 <Text style={styles.imagemOverlayTexto}>Mamahaha no Tsurego ga Moto Kano datta</Text>
-                <View style={styles.botaoTrailer}>
+                <TouchableOpacity style={styles.botaoTrailer}>
                 <Text style={styles.botaoTrailerTexto}>Trailer</Text>
-                </View>
+                </TouchableOpacity>
                      </View>
             <Image
         style={styles.tinyLogo}
@@ -75,12 +42,17 @@ const styles = StyleSheet.create({
     //  backgroundColor:"#191828",
  
 },
+background:{
+zIndex: 0,
+position: "absolute",
+width: "100%",
+height: "100%",
+},
 headerTexto:{
     color: "#ffbe63",
     textAlign: "center",
     fontSize: 25,
-    fontFamily: "Montserrat_700Bold",
-    fontWeight: "200"
+
 },
 imagemContainer:{
 width: "95%",
@@ -99,8 +71,7 @@ imagemOverlayTexto:{
     textShadowColor: "black",
     textShadowRadius: 4,
     marginLeft: 5,
-    fontFamily: "Montserrat",
-    fontWeight: "800"
+    fontWeight: "600"
 },
 botaoTrailer:{
     width: 100,
@@ -121,7 +92,7 @@ botaoTrailerTexto:{
 tinyLogo: {
     width: "100%",
     height: 200,
-    borderRadius: 10,
+    borderRadius: 4,
     
   },
 headerText:{

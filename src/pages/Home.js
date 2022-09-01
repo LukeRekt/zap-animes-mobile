@@ -73,7 +73,7 @@ export default function Home({navigation}){
                 
             />
             </View>
-            <Text style={styles.texto}>OS MAIS TOPS DO ZAP</Text>
+            <Text style={styles.texto}>ACABOU DE SAIR</Text>
             <View style={styles.containerEpisodios}>
             
              <Carousel
