@@ -1,11 +1,49 @@
 import React from "react";
 import { View,Text, StyleSheet, Image } from "react-native";
 import { Foundation } from '@expo/vector-icons'; 
-import { useFonts } from 'expo-font';
+import {
+    useFonts,
+    Montserrat_100Thin,
+    Montserrat_200ExtraLight,
+    Montserrat_300Light,
+    Montserrat_400Regular,
+    Montserrat_500Medium,
+    Montserrat_600SemiBold,
+    Montserrat_700Bold,
+    Montserrat_800ExtraBold,
+    Montserrat_900Black,
+    Montserrat_100Thin_Italic,
+    Montserrat_200ExtraLight_Italic,
+    Montserrat_300Light_Italic,
+    Montserrat_400Regular_Italic,
+    Montserrat_500Medium_Italic,
+    Montserrat_600SemiBold_Italic,
+    Montserrat_700Bold_Italic,
+    Montserrat_800ExtraBold_Italic,
+    Montserrat_900Black_Italic,
+  } from '@expo-google-fonts/montserrat';
 export default function EmBreve(){
-    const [fontsLoaded] = useFonts({
-        'Montserrat': require('../../assets/Montserrat-Light.ttf'),
+    let [fontsLoaded] = useFonts({
+        Montserrat_100Thin,
+        Montserrat_200ExtraLight,
+        Montserrat_300Light,
+        Montserrat_400Regular,
+        Montserrat_500Medium,
+        Montserrat_600SemiBold,
+        Montserrat_700Bold,
+        Montserrat_800ExtraBold,
+        Montserrat_900Black,
+        Montserrat_100Thin_Italic,
+        Montserrat_200ExtraLight_Italic,
+        Montserrat_300Light_Italic,
+        Montserrat_400Regular_Italic,
+        Montserrat_500Medium_Italic,
+        Montserrat_600SemiBold_Italic,
+        Montserrat_700Bold_Italic,
+        Montserrat_800ExtraBold_Italic,
+        Montserrat_900Black_Italic,
       });
+
 
     return (
         <View style={styles.header}>
@@ -41,7 +79,7 @@ headerTexto:{
     color: "#ffbe63",
     textAlign: "center",
     fontSize: 25,
-    fontFamily: "Montserrat",
+    fontFamily: "Montserrat_700Bold",
     fontWeight: "200"
 },
 imagemContainer:{

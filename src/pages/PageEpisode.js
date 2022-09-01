@@ -1,4 +1,4 @@
-import {View,Text, StyleSheet, Image, TouchableOpacity} from "react-native";
+import {View,Text, StyleSheet, Image, TouchableOpacity, Button} from "react-native";
 import VideoPlayer from "../components/VideoPlayer";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Feather } from '@expo/vector-icons'; 
@@ -12,11 +12,14 @@ import {REACT_APP_API_URL} from '@env'
 
 export default function PageEpisode(props){
   const [postab, setPostab] = useState([])
+  const [video, setVideo] = useState()
   const navigation = useNavigation();
+
   useEffect(() => {
     axios.get(`${REACT_APP_API_URL}/getanim/episodios/${props.route.params.temporada}/${props.route.params.id}/${props.route.params.numero + 1}`)
       .then(res => {
         setPostab(res.data.episodios)
+        setVideo("")
       console.log(REACT_APP_API_URL)
       })
   }, [props, REACT_APP_API_URL])
@@ -24,9 +27,15 @@ export default function PageEpisode(props){
 
     return (
         <View style={styles.container}>
+          
           {console.log(REACT_APP_API_URL)}
           {console.log(REACT_APP_API_URL)}
-          <VideoPlayer video={`http://192.168.0.103:3232/${props.route.params.video}`}/>
+          <VideoPlayer video={`http://192.168.0.103:3232/${video}`}/>
+          <View style={styles.botoesContainer}>
+            <TouchableOpacity style={styles.botoes} onPress={() => setVideo(props.route.params.video)}><Text style={styles.texto}>Legendado</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.botoes} onPress={() => setVideo(props.route.params.videoDublado)}><Text style={styles.texto}>Dublado</Text></TouchableOpacity>
+          </View>
+          
           <View style={styles.animeInfos}>
           <Text style={styles.texto}>{props.route.params.nomeAnime}</Text>
           <Text style={styles.textoEp}>T{props.route.params.temporada} E{props.route.params.numero} - {props.route.params.nome}</Text>
@@ -73,6 +82,17 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "column",
         backgroundColor: '#181829',
+      },
+      botoesContainer:{
+         flexDirection: "row",
+         
+      },
+      botoes:{
+        width: "50%",
+        backgroundColor: "#04042a",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 10,
       },
       animeInfos:{
         flex: 1,

@@ -10,6 +10,7 @@ export default function AnimeEpisodes(props){
     const navigation = useNavigation();
 
     const [posta, setPosta] = useState([])
+    
 
     useEffect(() => {
       axios.get(`${REACT_APP_API_URL}/getanim/episodios/${props.temporada}/${props.idAnime}`)
