@@ -39,6 +39,14 @@ export default function Home({navigation}){
             })
     }, [REACT_APP_API_URL])
 
+    const [novosAnimes, setNovosAnimes] = useState();
+    useEffect(() => {
+        axios.get(`${REACT_APP_API_URL}/getnovosanim`)
+            .then(res => {
+                setNovosAnimes(res.data.animes)
+            })
+    }, [REACT_APP_API_URL])
+
     function _onPressCarousel(item){
         navigation.navigate("AnimeScreen", item);
     }
@@ -77,7 +85,7 @@ export default function Home({navigation}){
             <View style={styles.containerEpisodios}>
             
              <Carousel
-                data={posts}
+                data={novosAnimes}
                 renderItem={carouselCardItem}
                 sliderWidth={SLIDER_WIDTH}
                 itemWidth={ITEM_WIDTH}
@@ -97,7 +105,7 @@ export default function Home({navigation}){
 const styles = StyleSheet.create({
     container:{
         backgroundColor: "#151538",
-        paddingTop: 30
+        paddingTop: 0
     },
     containerEpisodios:{
     },

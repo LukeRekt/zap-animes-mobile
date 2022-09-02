@@ -8,7 +8,7 @@ export default function EmBreve(){
 
     return (
         <View style={styles.header}>
-            <Text style={styles.headerTexto}>ZAP RECOMENDA</Text>
+            {/* <Text style={styles.headerTexto}>ZAP RECOMENDA</Text> */}
             <View style={styles.imagemContainer}>
                 
                 <View style={styles.imagemOverlay}>
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
  header:{
     margin: 0,
     width: '100%',
-    height: 230,
+    height: 300,
     //  backgroundColor:"#191828",
  
 },
@@ -55,8 +55,8 @@ headerTexto:{
 
 },
 imagemContainer:{
-width: "95%",
-marginLeft: "2.5%"
+width: "100%",
+height: 300,
 },
 imagemOverlay:{
     position: "absolute",
@@ -71,11 +71,12 @@ imagemOverlayTexto:{
     textShadowColor: "black",
     textShadowRadius: 4,
     marginLeft: 5,
+    marginTop: 160,
     fontWeight: "600"
 },
 botaoTrailer:{
     width: 100,
-    marginTop: 75,
+    marginTop: 10,
     marginLeft: 5,
 },
 botaoTrailerTexto:{
@@ -91,8 +92,8 @@ botaoTrailerTexto:{
 },
 tinyLogo: {
     width: "100%",
-    height: 200,
-    borderRadius: 4,
+    height: 300,
+    borderRadius: 2,
     
   },
 headerText:{
@@ -100,6 +101,7 @@ headerText:{
     fontSize: 20,
     color: "#333",
     letterSpacing: 1,
+    
 },
 
 })
