@@ -16,12 +16,12 @@ export default function EmBreve(){
         // Background Linear Gradient
         start={{x: 0, y: 1}}
         end={{x: 0, y: 0}}
-        colors={['rgba(0,0,0,1)', 'transparent']}
+        colors={['#151538', 'transparent']}
         style={styles.background}
       />
                 <Text style={styles.imagemOverlayTexto}>Mamahaha no Tsurego ga Moto Kano datta</Text>
                 <TouchableOpacity style={styles.botaoTrailer}>
-                <Text style={styles.botaoTrailerTexto}>Trailer</Text>
+                <Text onPress={() => alert("Tô com preguiça de fazer")} style={styles.botaoTrailerTexto}>Trailer</Text>
                 </TouchableOpacity>
                      </View>
             <Image

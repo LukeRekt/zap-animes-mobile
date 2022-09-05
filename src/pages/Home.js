@@ -30,7 +30,7 @@ const carouselItens = [
 
 
 export default function Home({navigation}){
-    
+    //PRIMEIRO CAROUSEL
     const [posts, setPosts] = useState();
     useEffect(() => {
         axios.get(`${REACT_APP_API_URL}/getanim`)
@@ -38,7 +38,7 @@ export default function Home({navigation}){
                 setPosts(res.data.animes)
             })
     }, [REACT_APP_API_URL])
-
+    //CAROUSEL NOVOS ANIMES
     const [novosAnimes, setNovosAnimes] = useState();
     useEffect(() => {
         axios.get(`${REACT_APP_API_URL}/getnovosanim`)
@@ -47,17 +47,34 @@ export default function Home({navigation}){
             })
     }, [REACT_APP_API_URL])
 
+    //CAROUSEL COMÉDIA
+    const [animesComedia, setAnimesComedia] = useState();
+    useEffect(() => {
+        axios.get(`${REACT_APP_API_URL}/getanimtemas/Comédia`)
+            .then(res => {
+                setAnimesComedia(res.data.animes)
+            })
+    }, [REACT_APP_API_URL])
+        //CAROUSEL ISEKAI
+        const [animesIsekai, setAnimesIsekai] = useState();
+        useEffect(() => {
+            axios.get(`${REACT_APP_API_URL}/getanimtemas/Isekai`)
+                .then(res => {
+                    setAnimesIsekai(res.data.animes)
+                })
+        }, [REACT_APP_API_URL])
+
+
     function _onPressCarousel(item){
         navigation.navigate("AnimeScreen", item);
     }
+
+
     function carouselCardItem ({item, index}){
         return (
             <TouchableOpacity onPress={() => _onPressCarousel(item)} style={styles.cardCarousel}
              key={index}>
                 <Image style={styles.image} source={{ uri: `${REACT_APP_API_URL}/${item.imagem}`}}/>
-                {console.log(REACT_APP_API_URL)}
-                {console.log(REACT_APP_API_URL)}
-                {console.log(REACT_APP_API_URL)}
                 <View style={styles.animeInfos}>
                     <Text style={styles.animeInfosTexto}>{item.nome}</Text>
                     <Text style={styles.animeInfosTextoBaixo}>Série・Dublado</Text>
@@ -78,6 +95,7 @@ export default function Home({navigation}){
                 sliderWidth={SLIDER_WIDTH}
                 itemWidth={ITEM_WIDTH}
                 useScrollView={true}
+                activeSlideAlignment="start" 
                 
             />
             </View>
@@ -90,6 +108,31 @@ export default function Home({navigation}){
                 sliderWidth={SLIDER_WIDTH}
                 itemWidth={ITEM_WIDTH}
                 useScrollView={true}
+                activeSlideAlignment="start" 
+            />
+            </View>
+            <Text style={styles.texto}>COMÉDIA</Text>
+            <View style={styles.containerEpisodios}>
+            
+             <Carousel
+                data={animesComedia}
+                renderItem={carouselCardItem}
+                sliderWidth={SLIDER_WIDTH}
+                itemWidth={ITEM_WIDTH}
+                useScrollView={true}
+                activeSlideAlignment="start" 
+            />
+            </View>
+            <Text style={styles.texto}>ISEKAIS</Text>
+            <View style={styles.containerEpisodios}>
+            
+             <Carousel
+                data={animesIsekai}
+                renderItem={carouselCardItem}
+                sliderWidth={SLIDER_WIDTH}
+                itemWidth={ITEM_WIDTH}
+                useScrollView={true}
+                activeSlideAlignment="start" 
             />
             </View>
             {/* <Button
@@ -134,7 +177,7 @@ const styles = StyleSheet.create({
     },
     texto:{
         color: 'white',
-        marginLeft: 70,
+        marginLeft: 10,
         marginTop: 15,
         marginBottom: 10,
         fontSize: 20,
