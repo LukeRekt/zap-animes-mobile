@@ -82,7 +82,7 @@ botaoTrailer:{
     marginLeft: 5,
 },
 botaoTrailerTexto:{
-    backgroundColor: "#ffbe63",
+    backgroundColor: "#d98c20",
     color: "#181829",
     fontSize: 25,
     paddingHorizontal: 10,

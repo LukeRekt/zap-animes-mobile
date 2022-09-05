@@ -4,6 +4,7 @@ import {Button,TouchableOpacity, View,Text, StyleSheet, Dimensions, Image, Scrol
 import {REACT_APP_API_URL} from '@env'
 import Carousel from "react-native-snap-carousel";
 import EmBreve from "../components/EmBreve";
+import * as Updates from 'expo-updates';
 
 const SLIDER_WIDTH = Dimensions.get('window').width
 const ITEM_WIDTH = SLIDER_WIDTH * 0.45
@@ -30,6 +31,21 @@ const carouselItens = [
 
 
 export default function Home({navigation}){
+
+    useEffect(() => {
+        reactToUpdates();
+    }, []);
+    
+    const reactToUpdates = async () => {
+        Updates.addListener((event) => {
+            if(event.type === Updates.UpdateEventType.UPDATE_AVAILABLE){
+                // Updates.reloadAsync();
+                alert("Nova Atualizacao disponivel, feche e abra o app!")
+            }
+        })
+    }
+
+
     //PRIMEIRO CAROUSEL
     const [posts, setPosts] = useState();
     useEffect(() => {
@@ -180,6 +196,6 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginTop: 15,
         marginBottom: 10,
-        fontSize: 20,
+        fontSize: 25,
     }
 })
