@@ -17,6 +17,7 @@ export default function AnimeEpisodes(props){
         .then(res => {
           setPosta(res.data.episodios)
         console.log(REACT_APP_API_URL)
+        console.log(REACT_APP_API_URL)
         })
     }, [props, REACT_APP_API_URL])
     return (

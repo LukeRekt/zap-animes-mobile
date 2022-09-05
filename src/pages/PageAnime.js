@@ -15,6 +15,7 @@ export default function PageAnime(props){
         .then(res => {
         setTemporada(res.data.temporadas)
         console.log(REACT_APP_API_URL)
+        console.log(REACT_APP_API_URL)
         console.log(temporada)
         })
     }, [props, REACT_APP_API_URL])

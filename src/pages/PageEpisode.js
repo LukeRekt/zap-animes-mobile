@@ -19,6 +19,7 @@ export default function PageEpisode(props){
     axios.get(`${REACT_APP_API_URL}/getanim/episodios/${props.route.params.temporada}/${props.route.params.id}/${props.route.params.numero + 1}`)
       .then(res => {
         setPostab(res.data.episodios)
+        console.log(REACT_APP_API_URL)
         setVideo("")
       console.log(REACT_APP_API_URL)
       })
@@ -30,7 +31,7 @@ export default function PageEpisode(props){
           
           {console.log(REACT_APP_API_URL)}
           {console.log(REACT_APP_API_URL)}
-          <VideoPlayer video={`http://192.168.0.103:3232/${video}`}/>
+          <VideoPlayer video={`${REACT_APP_API_URL}/${video}`}/>
           <View style={styles.botoesContainer}>
             <TouchableOpacity style={styles.botoes} onPress={() => setVideo(props.route.params.video)}><Text style={styles.texto}>Legendado</Text></TouchableOpacity>
             <TouchableOpacity style={styles.botoes} onPress={() => setVideo(props.route.params.videoDublado)}><Text style={styles.texto}>Dublado</Text></TouchableOpacity>
