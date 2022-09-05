@@ -14,7 +14,9 @@ export default function EmBreve(){
                 <View style={styles.imagemOverlay}>
                 <LinearGradient
         // Background Linear Gradient
-        colors={['rgba(0,0,0,0.8)', 'transparent']}
+        start={{x: 0, y: 1}}
+        end={{x: 0, y: 0}}
+        colors={['rgba(0,0,0,1)', 'transparent']}
         style={styles.background}
       />
                 <Text style={styles.imagemOverlayTexto}>Mamahaha no Tsurego ga Moto Kano datta</Text>
