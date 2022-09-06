@@ -20,6 +20,7 @@ export default function PageEpisode(props){
       .then(res => {
         setPostab(res.data.episodios)
         console.log(REACT_APP_API_URL)
+        console.log(REACT_APP_API_URL)
         setVideo("")
       console.log(REACT_APP_API_URL)
       })

@@ -8,6 +8,7 @@ import Profile from "../pages/Profile";
 import PageAnime from "../pages/PageAnime";
 import PageEpisode from "../pages/PageEpisode";
 import Header from "../components/Header";
+import SearchPage from "../pages/SearchPage";
 
 
 
@@ -25,8 +26,10 @@ const MainStackNavigator = () => {
         headerTitle: () => <Header/>
       })}>
       <Stack.Screen name="HomeScreen" component={Home} />
+      <Stack.Screen name="SearchScreen" component={SearchPage} />
       <Stack.Screen name="AnimeScreen" component={PageAnime} />
       <Stack.Screen name="AnimeEpisodeScreen" component={PageEpisode} options={{ headerShown: false }}/>
+      
     </Stack.Navigator>
   );
 }
