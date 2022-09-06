@@ -1,5 +1,5 @@
 import React from "react";
-import { View,Text, StyleSheet, Image } from "react-native";
+import { View,Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Foundation } from '@expo/vector-icons'; 
 import { useNavigation } from "@react-navigation/native";
 
@@ -15,7 +15,8 @@ export default function Header({}){
         source={require('../public/images/metadata2.jpg')}
       />
             </View>
-            <Foundation name="magnifying-glass" size={30} color="white" onPress={() => navigation.navigate("SearchScreen")}/>
+            <TouchableOpacity onPress={() => navigation.navigate("SearchScreen")}><Foundation name="magnifying-glass" size={30} color="white" /></TouchableOpacity>
+            
         </View>
         
     )
