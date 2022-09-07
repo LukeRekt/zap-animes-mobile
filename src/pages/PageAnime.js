@@ -4,7 +4,8 @@ import React, { useEffect, useState } from "react";
 import { View,Text, StyleSheet, Image, ScrollView, SafeAreaView, SectionList } from "react-native";
 import AnimeEpisodes from "../components/AnimeEpisodes";
 import {REACT_APP_API_URL} from '@env'
-
+import { FontAwesome } from '@expo/vector-icons'; 
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 export default function PageAnime(props){
     
 
@@ -52,7 +53,14 @@ export default function PageAnime(props){
             <View style={styles.animeCard}>
             <Image style={styles.imagem} source={{ uri: `${REACT_APP_API_URL}/${props.route.params.imagem}`}}/>
             <View style={styles.animeLancamento}>
-            <Text style={styles.animeLancamentoText}>EM LANÇAMENTO</Text>
+            {props.route.params.lancamento === false ? (<Text style={styles.animeCompletoText}><FontAwesome name="check" size={35} color="white" /> Completo</Text>) :
+             (<View style={styles.textoLancamentoContainer}>
+                 <MaterialCommunityIcons name="lightning-bolt" size={40} color="black" style={{marginLeft: 10}}/>
+                <View style={styles.animeLancamentoTextTextos}>
+                <Text style={styles.animeLancamentoText}>EM LANÇAMENTO</Text>
+                <Text>{props.route.params.diaLancamento}</Text>
+                </View>
+            </View>)}
             </View>
 
             <View style={styles.animeEpEsFi}>
@@ -173,15 +181,28 @@ const styles = StyleSheet.create({
         
     },
     animeLancamento:{
+        width: "97%"
+
+    },
+    textoLancamentoContainer:{
+        paddingVertical: 5,
         backgroundColor: "#ffbe63",
         borderRadius: 5,
-        marginBottom: 10
+        alignItems: "center",
+        flexDirection:"row"
     },
     animeLancamentoText:{
+        fontSize:25,
+    },
+    animeCompletoText:{
         fontSize:32,
         paddingHorizontal: 35,
-        paddingVertical: 5.
-
+        paddingVertical: 5.,
+        backgroundColor: "#27ae60",
+        borderRadius: 5,
+        marginBottom: 10,
+        color: "white",
+        fontWeight: "400"
     },
     animeEpEsFi:{
         flex:1,
