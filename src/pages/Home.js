@@ -96,7 +96,7 @@ export default function Home({navigation}){
                 <Image style={styles.image} source={{ uri: `${REACT_APP_API_URL}/${item.imagem}`}}/>
                 <View style={styles.animeInfos}>
                     <Text style={styles.animeInfosTexto}>{item.nome}</Text>
-                    <Text style={styles.animeInfosTextoBaixo}>Série・Dublado</Text>
+                    {item.dublado == false ? (<Text style={styles.animeInfosTextoBaixo}>Série・Legendado</Text>) : (<Text style={styles.animeInfosTextoBaixo}>Série・Dub | Leg</Text>)}
                 </View>
             </TouchableOpacity>
         )
