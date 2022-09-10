@@ -11,7 +11,7 @@ export default function AnimeEpisodes(props){
 
     const [posta, setPosta] = useState([])
     
-
+//teste
     useEffect(() => {
       axios.get(`${REACT_APP_API_URL}/getanim/episodios/${props.temporada}/${props.idAnime}`)
         .then(res => {
@@ -23,7 +23,7 @@ export default function AnimeEpisodes(props){
             <Text style={styles.temporadaTexto}>{props.temporada}ª Temporada - {props.nomeTemporada}</Text>
             {posta.map((post, index) =>
             <TouchableOpacity onPress={() => navigation.navigate("AnimeEpisodeScreen", post)} style={styles.proximoEpCard} key={index}>
-                {/* <Text style={styles.epNumero}>{post.numero} - {post.nome}</Text> */}
+                {/* <Text style={styles.epNumero}>{post.numero} - {post.nome}</Text> a*/}
                 <View style={styles.proximoEpCardEsquerda}>
           <View style={styles.proximoEpCardOver}>
             <Feather name="play" size={30} color="#ffffffd4" />
@@ -33,7 +33,7 @@ export default function AnimeEpisodes(props){
             
             <View style={styles.proximoEpCardTextos}>
             <Text style={styles.proximoEpCardTexto}>T{post.temporada} E{post.numero} - {post.nome}</Text>
-            {post.videoDublado === "nao" ? (<></>) : (<Text style={styles.proximoEpCardTextoDub}>Dublado</Text>)}
+            <View style={styles.botaoDublado}>{post.videoDublado === "nao" ? (<></>) : (<Text style={styles.proximoEpCardTextoDub}>Dublado</Text>)}</View>
             </View>
             </TouchableOpacity>
             
@@ -106,6 +106,10 @@ const styles = StyleSheet.create({
         marginLeft:10,
         marginTop: 10,
       },
+      botaoDublado:{
+        justifyContent: "flex-start",
+        alignItems:"flex-start",
+      },
       proximoEpCardTextoDub:{
         color: "white",
         marginLeft:10,
@@ -113,7 +117,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         paddingVertical: 5,
         backgroundColor: "#181829",
-        width: "38%",
+        // width: "38%",
+        
         borderRadius: 5
       }
 

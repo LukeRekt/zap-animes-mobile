@@ -40,7 +40,7 @@ export default function Home({navigation}){
     const reactToUpdates = async () => {
         Updates.addListener((event) => {
             if(event.type === Updates.UpdateEventType.UPDATE_AVAILABLE){
-                // Updates.reloadAsync();
+                // Updates.reloadAsync();aaaa
                 alert("Nova Atualizacao disponivel, feche e abra o app!")
             }
         })
@@ -176,8 +176,8 @@ const styles = StyleSheet.create({
     image:{
         
         height: 250,
-        borderTopLeftRadius: 8,
-        borderTopRightRadius: 8
+        borderTopLeftRadius: 1,
+        borderTopRightRadius: 1
     },
     animeInfos:{
         backgroundColor: "#2a2a3d",
@@ -194,9 +194,10 @@ const styles = StyleSheet.create({
     },
     texto:{
         color: 'white',
-        marginLeft: 10,
+        marginLeft: 0,
         marginTop: 15,
         marginBottom: 10,
-        fontSize: 25,
+        fontSize: 20,
+        fontFamily: "Roboto"
     }
 })

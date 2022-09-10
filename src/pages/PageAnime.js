@@ -15,8 +15,6 @@ export default function PageAnime(props){
       axios.get(`${REACT_APP_API_URL}/gettemporada/${props.route.params.id}`)
         .then(res => {
         setTemporada(res.data.temporadas)
-
-        console.log(temporada)
         })
     }, [props, REACT_APP_API_URL])
 
@@ -122,7 +120,7 @@ export default function PageAnime(props){
             <Text style={{color: "white"}}>{props.route.params.especiais}</Text>
             <Text style={{color: "white"}}>{props.route.params.imagem}</Text>
             <Text style={{color: "white"}}>{props.route.params.filmes}</Text>
-            <Text style={{color: "white"}}>{props.route.params.nota}</Text>
+            <Text style={{color: "white"}}>{props.route.params.nota}</Text>a
             <Text style={{color: "white"}}></Text>
             <Text style={{color: "white"}}>{props.route.params.temas}</Text> */}
             <View style={styles.Episodios}>

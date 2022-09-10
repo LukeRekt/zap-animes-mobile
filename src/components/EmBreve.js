@@ -1,5 +1,5 @@
 import React from "react";
-import { View,Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View,Text, StyleSheet, Image, TouchableOpacity, Linking } from "react-native";
 import { Foundation } from '@expo/vector-icons'; 
 import { LinearGradient } from 'expo-linear-gradient';
 export default function EmBreve(){
@@ -19,9 +19,14 @@ export default function EmBreve(){
         style={styles.background}
       />
                 <Text style={styles.imagemOverlayTexto}>Mamahaha no Tsurego ga Moto Kano datta</Text>
+                <View style={styles.areaBotao}>
                 <TouchableOpacity style={styles.botaoTrailer}>
-                <Text onPress={() => alert("Tô com preguiça de fazer")} style={styles.botaoTrailerTexto}>Trailer</Text>
+                <Text onPress={() => { 
+      Linking.openURL( 'vnd.youtube://watch?v=8pflEU0-8AM');
+          }} style={styles.botaoTrailerTexto}>Assistir ao Trailer</Text>
                 </TouchableOpacity>
+                </View>
+                
                      </View>
             <Image
         style={styles.tinyLogo}
@@ -75,20 +80,22 @@ imagemOverlayTexto:{
     marginTop: 160,
     fontWeight: "600"
 },
+areaBotao:{
+justifyContent: "flex-start",
+alignItems:"flex-start"
+},
 botaoTrailer:{
-    width: 100,
-    marginTop: 10,
-    marginLeft: 5,
+marginLeft: 4,
 },
 botaoTrailerTexto:{
-    backgroundColor: "#d98c20",
+    backgroundColor: "#e16537",
     color: "#181829",
     fontSize: 25,
     paddingHorizontal: 10,
     paddingVertical: 3,
     paddingLeft: 12,
-    borderRadius: 4,
-    borderColor: "rgba(0, 0, 0, 0.3)",
+    borderRadius: 1,
+    borderColor: "rgba(0, 0, 0, 0.1)",
     borderWidth: 1,
 },
 tinyLogo: {

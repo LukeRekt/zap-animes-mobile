@@ -8,7 +8,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import axios from "axios";
 import {REACT_APP_API_URL} from '@env'
 
-
+//teste
 
 export default function PageEpisode(props){
   const [postab, setPostab] = useState([])

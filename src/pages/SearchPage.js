@@ -10,7 +10,7 @@ export default function SearchPage(){
     const navigation = useNavigation();
     const [data, setData] = useState();
     const [animeBuscados, setAnimesBuscados] = useState();
-    
+    //testea
     useEffect(() => {
         axios.get(`${REACT_APP_API_URL}/getanim`)
             .then(res => {
