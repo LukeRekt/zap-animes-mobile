@@ -39,6 +39,7 @@ export default function AnimeEpisodes(props){
             
             <View style={styles.proximoEpCardTextos}>
             <Text style={styles.proximoEpCardTexto}>T{post.temporada} E{post.numero} - {post.nome}</Text>
+            {post.videoDublado === "nao" ? (<></>) : (<Text style={styles.proximoEpCardTextoDub}>Dublado</Text>)}
             </View>
             </TouchableOpacity>
             
@@ -101,7 +102,8 @@ const styles = StyleSheet.create({
       proximoEpCardTextos:{
         backgroundColor: "#2a2a3d",
         height: 100,
-        width: "100%"
+        width: "100%",
+        justifyContent: "space-between"
       },
       proximoEpCardTexto:{
         color: "white",
@@ -110,6 +112,16 @@ const styles = StyleSheet.create({
         marginLeft:10,
         marginTop: 10,
       },
+      proximoEpCardTextoDub:{
+        color: "white",
+        marginLeft:10,
+        marginBottom: 2,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        backgroundColor: "#181829",
+        width: "38%",
+        borderRadius: 5
+      }
 
 
 })
