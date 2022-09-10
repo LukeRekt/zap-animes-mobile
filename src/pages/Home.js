@@ -53,8 +53,6 @@ export default function Home({navigation}){
         axios.get(`${REACT_APP_API_URL}/getanim`)
             .then(res => {
                 setPosts(res.data.animes)
-                console.log(REACT_APP_API_URL)
-                console.log(REACT_APP_API_URL)
             })
     }, [REACT_APP_API_URL])
     //CAROUSEL NOVOS ANIMES

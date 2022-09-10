@@ -16,16 +16,10 @@ export default function AnimeEpisodes(props){
       axios.get(`${REACT_APP_API_URL}/getanim/episodios/${props.temporada}/${props.idAnime}`)
         .then(res => {
           setPosta(res.data.episodios)
-        console.log(REACT_APP_API_URL)
-        console.log(REACT_APP_API_URL)
-        console.log(REACT_APP_API_URL)
         })
     }, [props, REACT_APP_API_URL])
     return (
         <View style={styles.container}>
-          {console.log(REACT_APP_API_URL)}
-          
-          {console.log(REACT_APP_API_URL)}
             <Text style={styles.temporadaTexto}>{props.temporada}ª Temporada - {props.nomeTemporada}</Text>
             {posta.map((post, index) =>
             <TouchableOpacity onPress={() => navigation.navigate("AnimeEpisodeScreen", post)} style={styles.proximoEpCard} key={index}>

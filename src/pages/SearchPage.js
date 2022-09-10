@@ -14,7 +14,6 @@ export default function SearchPage(){
     useEffect(() => {
         axios.get(`${REACT_APP_API_URL}/getanim`)
             .then(res => {
-                console.log(animeBuscados)
                 setAnimesBuscados(res.data.animes)
                 setData(res.data.animes)
             })

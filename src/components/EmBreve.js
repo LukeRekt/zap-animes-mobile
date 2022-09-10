@@ -10,7 +10,6 @@ export default function EmBreve(){
         <View style={styles.header}>
             {/* <Text style={styles.headerTexto}>ZAP RECOMENDA</Text> */}
             <View style={styles.imagemContainer}>
-                
                 <View style={styles.imagemOverlay}>
                 <LinearGradient
         // Background Linear Gradient
