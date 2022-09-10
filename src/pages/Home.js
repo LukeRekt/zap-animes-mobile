@@ -55,7 +55,7 @@ export default function Home({navigation}){
                 setPosts(res.data.animes)
             })
     }, [REACT_APP_API_URL])
-    //CAROUSEL NOVOS ANIMES
+    //CAROUSEL NOVOS ANIMESs
     const [novosAnimes, setNovosAnimes] = useState();
     useEffect(() => {
         axios.get(`${REACT_APP_API_URL}/getnovosanim`)

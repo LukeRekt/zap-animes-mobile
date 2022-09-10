@@ -8,7 +8,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import axios from "axios";
 import {REACT_APP_API_URL} from '@env'
 
-//teste
+//testea
 
 export default function PageEpisode(props){
   const [postab, setPostab] = useState([])
@@ -29,7 +29,7 @@ export default function PageEpisode(props){
           <VideoPlayer video={`${REACT_APP_API_URL}/${video}`}/>
           <View style={styles.botoesContainer}>
             <TouchableOpacity style={styles.botoes} onPress={() => setVideo(props.route.params.video)}><Text style={styles.texto}>Legendado</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.botoes} onPress={() => setVideo(props.route.params.videoDublado)}><Text style={styles.texto}>Dublado</Text></TouchableOpacity>
+            {props.route.params.videoDublado == "nao" ? (<TouchableOpacity style={styles.botoes} onPress={() => alert("Sem Dublagem")}><Text style={styles.texto}>Sem Dublagem</Text></TouchableOpacity>) : (<TouchableOpacity style={styles.botoes} onPress={() => setVideo(props.route.params.videoDublado)}><Text style={styles.texto}>Dublado</Text></TouchableOpacity>)}<TouchableOpacity style={styles.botoes} onPress={() => setVideo(props.route.params.videoDublado)}><Text style={styles.texto}>Dublado</Text></TouchableOpacity>
           </View>
           
           <View style={styles.animeInfos}>
