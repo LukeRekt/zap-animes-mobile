@@ -21,7 +21,9 @@ export default function AppRoutes(){
         screenOptions={({ route }) => ({
                  headerShown: false,
                  tabBarInactiveTintColor: "rgba(255, 255, 255, .8)",
-                 tabBarActiveTintColor: "#ffbe63"
+                 tabBarActiveTintColor: "#ffbe63",
+                 tabBarActiveBackgroundColor: "#26243d",
+                 
                })}>
         <Tab.Screen name="Home" component={MainStackNavigator} 
         options={{
@@ -33,6 +35,10 @@ export default function AppRoutes(){
                 backgroundColor: '#181829',
                 borderTopColor: 'rgba(255, 255, 255, .8)'
               },
+              tabBarLabelStyle: {
+                fontSize: 12,
+                fontWeight: "bold",
+            }
               
         }}/>
         <Tab.Screen name="Minha Lista" component={ListStackNavigator} 
@@ -43,17 +49,25 @@ export default function AppRoutes(){
             tabBarStyle: {
                 backgroundColor: '#181829',
                 borderTopColor: 'white'
-              }
+              },
+              tabBarLabelStyle: {
+                fontSize: 12,
+                fontWeight: "bold",
+            }
         }}/>
                 <Tab.Screen name="Descobrir" component={DiscoveryStackNavigator} 
         options={{
             tabBarIcon: () => {
-                return <Feather name="book" size={25} color="rgba(255, 255, 255, .8)"/>
+                return <Feather style={{padding: 10, position: "absolute", borderRadius: 50, borderWidth: 1, borderBottomWidth: 0, borderColor: "rgba(255, 255, 255, .4)", backgroundColor: "#181829"}} name="book" size={35} color="rgba(255, 255, 255, .8)"/>
             },
             tabBarStyle: {
                 backgroundColor: '#181829',
                 borderTopColor: 'white'
-              }
+              },
+              tabBarLabelStyle: {
+                fontSize: 12,
+                fontWeight: "bold",
+            }
         }}/>
                 <Tab.Screen name="Lancamentos" component={NewAnimeStackNavigator} 
         options={{
@@ -63,7 +77,11 @@ export default function AppRoutes(){
             tabBarStyle: {
                 backgroundColor: '#181829',
                 borderTopColor: 'white'
-              }
+              },
+              tabBarLabelStyle: {
+                fontSize: 11,
+                fontWeight: "bold",
+            }
         }}/>
                 <Tab.Screen name="Perfil" component={ProfileStackNavigator} 
         options={{
@@ -73,7 +91,11 @@ export default function AppRoutes(){
             tabBarStyle: {
                 backgroundColor: '#181829',
                 borderTopColor: 'white'
-              }
+              },
+              tabBarLabelStyle: {
+                fontSize: 12,
+                fontWeight: "bold",
+            }
         }}/>
       </Tab.Navigator>
          )

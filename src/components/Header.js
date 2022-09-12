@@ -12,7 +12,7 @@ export default function Header({}){
             <View>
             <Image
         style={styles.tinyLogo}
-        source={require('../public/images/metadata2.jpg')}
+        source={require('../public/images/metadata23.jpg')}
       />
             </View>
             <TouchableOpacity onPress={() => navigation.navigate("SearchScreen")}><Foundation name="magnifying-glass" size={30} color="white" /></TouchableOpacity>
