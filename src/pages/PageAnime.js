@@ -6,6 +6,7 @@ import AnimeEpisodes from "../components/AnimeEpisodes";
 import {REACT_APP_API_URL} from '@env'
 import { FontAwesome } from '@expo/vector-icons'; 
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import AnimeTemas from "../components/AnimeTemas";
 export default function PageAnime(props){
     
 
@@ -107,6 +108,7 @@ export default function PageAnime(props){
             <View style={styles.animeSinopse}>
             <Text style={styles.animeSinopseTitulo}>Sinopse</Text>
                 <Text style={styles.animeSinopseTexto}>{props.route.params.descricao}</Text>
+                <AnimeTemas temas={props.route.params.temas}/>
             </View>
 
             {/* {console.log(props.route.params)} */}
