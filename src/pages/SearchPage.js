@@ -37,6 +37,7 @@ export default function SearchPage(){
             <TextInput
             style={styles.input}
             placeholder="Nome do Anime"
+            placeholderTextColor="white"
             onChangeText={text => searchFilterFunction(text)}
             ></TextInput>
             <ScrollView>

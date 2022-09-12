@@ -2,6 +2,7 @@ import React from "react";
 import { View,Text, StyleSheet, Image, TouchableOpacity, Linking } from "react-native";
 import { Foundation } from '@expo/vector-icons'; 
 import { LinearGradient } from 'expo-linear-gradient';
+import { Feather } from '@expo/vector-icons'; 
 export default function EmBreve(){
 
 
@@ -18,12 +19,14 @@ export default function EmBreve(){
         colors={['#151538', 'transparent']}
         style={styles.background}
       />
-                <Text style={styles.imagemOverlayTexto}>Mamahaha no Tsurego ga Moto Kano datta</Text>
+                <Text style={styles.imagemOverlayTexto}>My Stepsister is My Ex</Text>
+                <Text style={styles.imagemOverlayTextoDescricao}>A nova filha do casamento de meu pai acabou por ser minha ex-namorada com quem acabei de terminar?
+                 Vivendo juntos como "irmãos" uma comédia romântica irritante e doce que fará você passar por agonia.</Text>
                 <View style={styles.areaBotao}>
                 <TouchableOpacity style={styles.botaoTrailer}>
                 <Text onPress={() => { 
       Linking.openURL( 'vnd.youtube://watch?v=8pflEU0-8AM');
-          }} style={styles.botaoTrailerTexto}>Assistir ao Trailer</Text>
+          }} style={styles.botaoTrailerTexto}><Feather name="play" size={24} color="black" /> Assistir ao Trailer</Text>
                 </TouchableOpacity>
                 </View>
                 
@@ -44,7 +47,7 @@ const styles = StyleSheet.create({
  header:{
     margin: 0,
     width: '100%',
-    height: 300,
+    height: 330,
     //  backgroundColor:"#191828",
  
 },
@@ -62,7 +65,7 @@ headerTexto:{
 },
 imagemContainer:{
 width: "100%",
-height: 300,
+height: 330,
 },
 imagemOverlay:{
     position: "absolute",
@@ -80,12 +83,20 @@ imagemOverlayTexto:{
     marginTop: 160,
     fontWeight: "600"
 },
+imagemOverlayTextoDescricao:{
+    color: "white",
+    textShadowColor: "black",
+    textShadowRadius: 4,
+    marginLeft: 5,
+    fontWeight: "600"
+},
 areaBotao:{
 justifyContent: "flex-start",
 alignItems:"flex-start"
 },
 botaoTrailer:{
 marginLeft: 4,
+marginTop: 10,
 },
 botaoTrailerTexto:{
     backgroundColor: "#e16537",
@@ -100,7 +111,7 @@ botaoTrailerTexto:{
 },
 tinyLogo: {
     width: "100%",
-    height: 300,
+    height: 330,
     borderRadius: 2,
     
   },
