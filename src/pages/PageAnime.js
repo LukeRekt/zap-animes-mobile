@@ -110,30 +110,7 @@ export default function PageAnime(props){
                 <Text style={styles.animeSinopseTexto}>{props.route.params.descricao}</Text>
                 <AnimeTemas temas={props.route.params.temas}/>
             </View>
-
-            {/* {console.log(props.route.params)} */}
-            
-            {/* <Text style={{color: "white"}}>{props.route.params.estudio}</Text>
-            <Text style={{color: "white"}}>{props.route.params.diretor}</Text>
-            <Text style={{color: "white"}}>{props.route.params.autor}</Text>
-            <Text style={{color: "white"}}>{props.route.params.ano}</Text>
-            <Text style={{color: "white"}}>{props.route.params.diaLancamento}</Text>
-            <Text style={{color: "white"}}>{props.route.params.episodios}</Text>
-            <Text style={{color: "white"}}>{props.route.params.especiais}</Text>
-            <Text style={{color: "white"}}>{props.route.params.imagem}</Text>
-            <Text style={{color: "white"}}>{props.route.params.filmes}</Text>
-            <Text style={{color: "white"}}>{props.route.params.nota}</Text>a
-            <Text style={{color: "white"}}></Text>
-            <Text style={{color: "white"}}>{props.route.params.temas}</Text> */}
             <View style={styles.Episodios}>
-            {/* {!posta ? (<View><Text>ERRO</Text></View>) : (
-            <View>
-
-                {posta.map((item, index) =>{
-                    return <Text>Episódios</Text>
-                })}
-                </View>
-                )} */}
                 {!temporada ? (<View><Text style={styles.animeSinopseTitulo}>Episódios indisponíveis</Text></View>) : (temporada.map((post, index) =>
               <AnimeEpisodes key={index} idAnime={props.route.params.id} temporada={post.temporadaAnime} nomeTemporada={post.nomeTemporada}/>)    )}
               

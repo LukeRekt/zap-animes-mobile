@@ -152,9 +152,6 @@ export default function Home({navigation}){
                 activeSlideAlignment="start" 
             />
             </View>
-            {/* <Button
-            onPress={() => navigation.navigate('Home')}
-            >Teste</Button> */}
             
         </ScrollView>
         
