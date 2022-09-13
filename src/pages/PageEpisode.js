@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import { FontAwesome5 } from '@expo/vector-icons'; 
 import axios from "axios";
 import {REACT_APP_API_URL} from '@env'
+import ReadMore from "../components/ReadMore";
 
 //testea
 
@@ -36,7 +37,9 @@ export default function PageEpisode(props){
           <Text style={styles.texto}>{props.route.params.nomeAnime}</Text>
           <Text style={styles.textoEp}>T{props.route.params.temporada} E{props.route.params.numero} - {props.route.params.nome}</Text>
           <View style={styles.sinopseEp}>
-          <Text style={styles.sinopseEpTexto}>Hayase Nagatoro, ao lado de suas amigas, passa o dia aterrorizando a paz de seu Senpai, um rapaz mais velho do que ela...<Text style={styles.sinopseEpSaberMais}>saber mais</Text></Text>
+          {/* <Text style={styles.sinopseEpTexto}>Hayase Nagatoro, ao lado de suas amigas, passa o dia aterrorizando a paz de seu Senpai, um rapaz mais velho do que ela...<Text style={styles.sinopseEpSaberMais}>saber mais</Text></Text> */}
+          {/* <Text style={styles.sinopseEpTexto}>{props.route.params.sinopseEp}<Text style={styles.sinopseEpSaberMais}>saber mais</Text></Text> */}
+          {!props.route.params.sinopseEp ? (<ReadMore texto="Sinopse indisponível"/>) : (<ReadMore texto={props.route.params.sinopseEp}/>)}
           </View>
           <View style={styles.comentariosEp}>
       <Text style={styles.comentariosEpTexto}><Ionicons name="chatbox-ellipses-outline" size={24} color="white" /> Comentários - 99024</Text>
