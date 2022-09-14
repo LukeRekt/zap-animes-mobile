@@ -40,7 +40,7 @@ export default function Home({navigation}){
     const reactToUpdates = async () => {
         Updates.addListener((event) => {
             if(event.type === Updates.UpdateEventType.UPDATE_AVAILABLE){
-                // Updates.reloadAsync();aaaa
+                // Updates.reloadAsync();aaaaa
                 alert("Nova Atualizacao disponivel, feche e abra o app!")
             }
         })

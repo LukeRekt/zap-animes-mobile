@@ -15,7 +15,7 @@ export default function PageAnime(props){
     useEffect(() => {
       axios.get(`${REACT_APP_API_URL}/gettemporada/${props.route.params.id}`)
         .then(res => {
-        setTemporada(res.data.temporadas)
+        setTemporada(res.data.temporadas)//aa
         })
     }, [props, REACT_APP_API_URL])
 

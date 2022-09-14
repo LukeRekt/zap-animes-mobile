@@ -6,7 +6,7 @@ import * as ScreenOrientation from 'expo-screen-orientation';
 
 export default function VideoPlayer(props){
 
-//https://helpincoding.com/rotate-expo-video-player-in-full-screen-mode/ <- Obrigado
+//https://helpincoding.com/rotate-expo-video-player-in-full-screen-mode/ <- Obrigado(a)
   function setOrientation() {
     if (Dimensions.get('window').height > Dimensions.get('window').width) {
       ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
