@@ -17,7 +17,7 @@ export default function PageEpisode(props){
   const navigation = useNavigation();
 
   useEffect(() => {
-    axios.get(`${REACT_APP_API_URL}/getanim/episodios/${props.route.params.temporada}/${props.route.params.id}/${props.route.params.numero + 1}`)//aa
+    axios.get(`${REACT_APP_API_URL}/getanim/episodios/${props.route.params.temporada}/${props.route.params.id}/${props.route.params.numero + 1}`)//aaa
       .then(res => {
         setPostab(res.data.episodios)
         setVideo("")

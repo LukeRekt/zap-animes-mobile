@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {Button,TouchableOpacity, View,Text, StyleSheet, Dimensions, Image, ScrollView } from "react-native";
+import {Button,TouchableOpacity, View,Text, StyleSheet, Dimensions, Image, ScrollView, ActivityIndicator } from "react-native";
 import {REACT_APP_API_URL} from '@env'
 import Carousel from "react-native-snap-carousel";
 import EmBreve from "../components/EmBreve";
@@ -40,7 +40,7 @@ export default function Home({navigation}){
     const reactToUpdates = async () => {
         Updates.addListener((event) => {
             if(event.type === Updates.UpdateEventType.UPDATE_AVAILABLE){
-                // Updates.reloadAsync();aaaaa
+                // Updates.reloadAsync();aaaaaa
                 alert("Nova Atualizacao disponivel, feche e abra o app!")
             }
         })
@@ -104,8 +104,8 @@ export default function Home({navigation}){
             <EmBreve/>
             {/* <Text style={{color: "white"}}>Home</Text> */}
             <Text style={styles.texto}>OS MAIS TOPS DO ZAP</Text>
-           <View style={styles.containerEpisodios}>
             
+            {!posts ? (<ActivityIndicator size={70} color="#fc6203" />) : (<View style={styles.containerEpisodios}>
             <Carousel
                 data={posts}
                 renderItem={carouselCardItem}
@@ -113,45 +113,43 @@ export default function Home({navigation}){
                 itemWidth={ITEM_WIDTH}
                 useScrollView={true}
                 activeSlideAlignment="start" 
-                
             />
-            </View>
+            </View>)}
+
             <Text style={styles.texto}>ACABOU DE SAIR</Text>
-            <View style={styles.containerEpisodios}>
-            
-             <Carousel
-                data={novosAnimes}
-                renderItem={carouselCardItem}
-                sliderWidth={SLIDER_WIDTH}
-                itemWidth={ITEM_WIDTH}
-                useScrollView={true}
-                activeSlideAlignment="start" 
-            />
-            </View>
+            {!novosAnimes ? (<ActivityIndicator size={70} color="#fc6203" />) : (<View style={styles.containerEpisodios}>
+            <Carousel
+               data={novosAnimes}
+               renderItem={carouselCardItem}
+               sliderWidth={SLIDER_WIDTH}
+               itemWidth={ITEM_WIDTH}
+               useScrollView={true}
+               activeSlideAlignment="start" 
+           />
+           </View>)}
             <Text style={styles.texto}>COMÉDIA</Text>
-            <View style={styles.containerEpisodios}>
-            
-             <Carousel
-                data={animesComedia}
-                renderItem={carouselCardItem}
-                sliderWidth={SLIDER_WIDTH}
-                itemWidth={ITEM_WIDTH}
-                useScrollView={true}
-                activeSlideAlignment="start" 
-            />
-            </View>
+            {!animesComedia ? (<ActivityIndicator size={70} color="#fc6203" />) : (            <View style={styles.containerEpisodios}>
+            <Carousel
+               data={animesComedia}
+               renderItem={carouselCardItem}
+               sliderWidth={SLIDER_WIDTH}
+               itemWidth={ITEM_WIDTH}
+               useScrollView={true}
+               activeSlideAlignment="start" 
+           />
+           </View>)}
             <Text style={styles.texto}>ISEKAIS</Text>
-            <View style={styles.containerEpisodios}>
-            
-             <Carousel
-                data={animesIsekai}
-                renderItem={carouselCardItem}
-                sliderWidth={SLIDER_WIDTH}
-                itemWidth={ITEM_WIDTH}
-                useScrollView={true}
-                activeSlideAlignment="start" 
-            />
-            </View>
+            {!animesIsekai ? (<ActivityIndicator size={70} color="#fc6203" />) : (            <View style={styles.containerEpisodios}>
+            <Carousel
+               data={animesIsekai}
+               renderItem={carouselCardItem}
+               sliderWidth={SLIDER_WIDTH}
+               itemWidth={ITEM_WIDTH}
+               useScrollView={true}
+               activeSlideAlignment="start" 
+           />
+           </View>)}
+
             
         </ScrollView>
         
