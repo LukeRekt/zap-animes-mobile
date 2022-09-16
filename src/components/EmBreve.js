@@ -1,16 +1,26 @@
-import React from "react";
-import { View,Text, StyleSheet, Image, TouchableOpacity, Linking } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View,Text, StyleSheet, Image, TouchableOpacity, Linking, ActivityIndicator } from "react-native";
 import { Foundation } from '@expo/vector-icons'; 
 import { LinearGradient } from 'expo-linear-gradient';
 import { Feather } from '@expo/vector-icons'; 
-export default function EmBreve(){
-
-
+import { useNavigation } from "@react-navigation/native";
+import {REACT_APP_API_URL} from '@env'
+import axios from "axios";
+export default function EmBreve(props){
+    const navigation = useNavigation();
+    const [posts, setPosts] = useState();
+    useEffect(() => {
+        axios.get(`${REACT_APP_API_URL}/getanim/admin/${props.idAnime}`)
+            .then(res => {
+                setPosts(res.data.animes)
+            })
+    }, [REACT_APP_API_URL])
 
     return (
         <View style={styles.header}>
-            {/* <Text style={styles.headerTexto}>ZAP RECOMENDA</Text> */}
-            <View style={styles.imagemContainer}>
+            {/* <Text style={styles.headerTexto}>ZAP RECOMENDAa</Text> */}
+            
+            {!posts ? (<ActivityIndicator size={70} color="#fc6203" />) : (            <View style={styles.imagemContainer}>
                 <View style={styles.imagemOverlay}>
                 <LinearGradient
         // Background Linear Gradient
@@ -19,23 +29,22 @@ export default function EmBreve(){
         colors={['#151538', 'transparent']}
         style={styles.background}
       />
-                <Text style={styles.imagemOverlayTexto}>My Stepsister is My Ex</Text>
-                <Text style={styles.imagemOverlayTextoDescricao}>A nova filha do casamento de meu pai acabou por ser minha ex-namorada com quem acabei de terminar?
-                 Vivendo juntos como "irmãos" uma comédia romântica irritante e doce que fará você passar por agonia.</Text>
+                <Text style={styles.imagemOverlayTexto}>{posts.nomeIngles}</Text>
+                <Text style={styles.imagemOverlayTextoDescricao}>{posts.descricao}</Text>
                 <View style={styles.areaBotao}>
                 <TouchableOpacity style={styles.botaoTrailer}>
-                <Text onPress={() => { 
-      Linking.openURL( 'vnd.youtube://watch?v=8pflEU0-8AM');
-          }} style={styles.botaoTrailerTexto}><Feather name="play" size={24} color="black" /> Assistir ao Trailer</Text>
+                <Text onPress={() => navigation.navigate("AnimeScreen", posts)}
+                 style={styles.botaoTrailerTexto}><Feather name="play" size={24} color="black" /> Assistir Agora</Text>
                 </TouchableOpacity>
                 </View>
                 
                      </View>
             <Image
         style={styles.tinyLogo}
-        source={{ uri:'https://ikigaipop.com/wp-content/uploads/2021/07/Mamahaha-no-Tsurego-ga-Moto-Kano-Datta-Cover.jpg'}}
+        source={{ uri: `${REACT_APP_API_URL}/${posts.imagem}`}}
       />
-            </View>
+            </View>)}
+
             
         </View>
         

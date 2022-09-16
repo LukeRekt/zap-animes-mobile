@@ -9,7 +9,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import AnimeTemas from "../components/AnimeTemas";
 export default function PageAnime(props){
     
-
+console.log(props)
     const [temporada, setTemporada] = useState()
 
     useEffect(() => {

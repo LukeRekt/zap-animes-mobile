@@ -101,7 +101,7 @@ export default function Home({navigation}){
     }
     return (
         <ScrollView style={styles.container}>
-            <EmBreve/>
+            <EmBreve idAnime={6}/>
             {/* <Text style={{color: "white"}}>Home</Text> */}
             <Text style={styles.texto}>OS MAIS TOPS DO ZAP</Text>
             
