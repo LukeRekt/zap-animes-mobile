@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { View,Text, StyleSheet, ScrollView, TextInput, Button, TouchableOpacity, Image } from "react-native";
 import LoginForm from "../components/LoginForm";
+import ProfilePageContent from "../components/ProfilePageContent";
 import { AuthContext } from "../context/AuthContext";
 import { REACT_APP_API_URL } from "../utils/config";
 
@@ -8,39 +9,12 @@ import { REACT_APP_API_URL } from "../utils/config";
 export default function Profile(){
     const {logout, userInfo, isLogged} = useContext(AuthContext);
     return (
-        <ScrollView style={styles.container}>
+        <View style={styles.container}>
             
             <View style={styles.containerForm}>
-           {isLogged == false ? (<LoginForm/>) : (
-           
-               <View> 
-
-               
-    <Image style={styles.imagem} source={{ uri: `${REACT_APP_API_URL}/${userInfo.userAvatar}`}}/>
-           <Text style={styles.texto}>Logado como: {userInfo.username}</Text>
-           
-           <TouchableOpacity onPress={() => {logout()}}
-       style={styles.botaoContainer}>
-         <Text style={styles.botaoTexto}>
-         LOGOUT
-         </Text>
-       </TouchableOpacity>
-           
-               </View>
-           
-           
-           )}
-             
-             
+           {isLogged == false ? (<LoginForm/>) : (<ProfilePageContent/>)}
             </View>
-        </ScrollView>
-
-
-
-  
-
-            
-    //         </View>)}
+        </View>
     )
 
 }
@@ -52,7 +26,7 @@ const styles = StyleSheet.create({
         
     },
     containerForm:{
-        marginTop:"30%"
+        marginTop:"0%"
     },
     texto:{
         color: "white",
