@@ -3,7 +3,7 @@ import { View,Text, StyleSheet, ScrollView, TextInput, Button, TouchableOpacity,
 import LoginForm from "../components/LoginForm";
 import { AuthContext } from "../context/AuthContext";
 import { REACT_APP_API_URL } from "../utils/config";
-
+import { Entypo } from '@expo/vector-icons';
 
 export default function ProfilePageContent(){
     const {logout, userInfo, isLogged} = useContext(AuthContext);
@@ -11,6 +11,10 @@ export default function ProfilePageContent(){
         <ScrollView style={styles.container}>
             <View style={styles.scrollContainer}>
                 <View style={styles.userPic}>
+                    <TouchableOpacity onPress={() => {logout()}} style={styles.logoutIcone}>
+                    <Entypo  name="log-out" size={40} color="black" />
+                    </TouchableOpacity>
+                
                 <Image style={styles.banner} source={{ uri: `${REACT_APP_API_URL}/${userInfo.userBanner}`}}/>
                 <Image style={styles.imagem} source={{ uri: `${REACT_APP_API_URL}/${userInfo.userAvatar}`}}/>
                 <Text style={styles.texto}>{userInfo.username}</Text>
@@ -20,15 +24,6 @@ export default function ProfilePageContent(){
                <Text style={{color: "rgba(255,255,255,.8)", fontSize:19, marginBottom: 10}}>0 Seguidores</Text>
                </View>
                 </View>
-            
-          
-           
-           <TouchableOpacity onPress={() => {logout()}}
-       style={styles.botaoContainer}>
-         <Text style={styles.botaoTexto}>
-         LOGOUT
-         </Text>
-       </TouchableOpacity>
 
             </View>
     
@@ -66,6 +61,14 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         borderWidth:1,
         borderColor: "rgba(255,255,255,.04)",
+    },
+    logoutIcone:{
+        position:"absolute",
+        top: 5,
+        right: 5,
+        zIndex: 2, 
+        backgroundColor: "rgba(255,255,255,.1)",
+        borderRadius: 4,
     },
     containerForm:{
         marginTop:"30%"

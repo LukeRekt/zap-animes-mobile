@@ -58,20 +58,22 @@ export default function LoginForm(){
 const styles = StyleSheet.create({
     container:{
         // backgroundColor:"#151538",
-        height:"100%"
+        height:"100%",
+
     },
     textoLogin:{
         color: "#ffbe63",
         textAlign: "center",
         fontSize: 40,
         marginBottom: 40,
-    
+        marginTop: 100,
     },  
     loginForm:{
         // backgroundColor: "#181829",
         width:"100%",
         justifyContent: "center",
         alignItems: "center",
+        marginTop: 20,
     },
     texto:{
         color: "white",
