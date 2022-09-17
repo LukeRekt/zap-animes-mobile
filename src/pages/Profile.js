@@ -52,9 +52,7 @@ const styles = StyleSheet.create({
         
     },
     containerForm:{
-        justifyContent: "center",
-        marginLeft: "8%",
-        marginTop:"50%"
+        marginTop:"30%"
     },
     texto:{
         color: "white",
