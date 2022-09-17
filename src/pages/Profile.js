@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { View,Text, StyleSheet, ScrollView, TextInput, Button, TouchableOpacity } from "react-native";
+import { View,Text, StyleSheet, ScrollView, TextInput, Button, TouchableOpacity, Image } from "react-native";
 import LoginForm from "../components/LoginForm";
 import { AuthContext } from "../context/AuthContext";
-
+import { REACT_APP_API_URL } from "../utils/config";
 
 
 export default function Profile(){
@@ -16,8 +16,7 @@ export default function Profile(){
                <View> 
 
                
-               
-           
+    <Image style={styles.imagem} source={{ uri: `${REACT_APP_API_URL}/${userInfo.userAvatar}`}}/>
            <Text style={styles.texto}>Logado como: {userInfo.username}</Text>
            
            <TouchableOpacity onPress={() => {logout()}}
@@ -72,5 +71,12 @@ const styles = StyleSheet.create({
         fontSize: 20,
         paddingHorizontal: 15,
         paddingVertical: 5,
+    },
+    imagem:{
+        height: 350,
+        borderRadius: 8,
+        width: "95%",
+        marginBottom: 10
+        
     },
 })

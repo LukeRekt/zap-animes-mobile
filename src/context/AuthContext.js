@@ -12,6 +12,8 @@ export const AuthProvider = ({children}) => {
     const [isLogged, setIsLogged] = useState(false);
 
     const login = (email, password) => {
+        console.log(email);
+        console.log(password)
         setIsLoading(true)
         axios.post(`${REACT_APP_API_URL}/login`, {
             email,
