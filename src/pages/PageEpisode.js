@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useNavigation } from '@react-navigation/native';
 import { FontAwesome5 } from '@expo/vector-icons'; 
 import axios from "axios";
-import {REACT_APP_API_URL} from '@env'
+import { REACT_APP_API_URL } from "../utils/config";
 import ReadMore from "../components/ReadMore";
 
 //testea

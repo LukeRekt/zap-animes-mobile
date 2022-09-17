@@ -4,7 +4,7 @@ import { Foundation } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Feather } from '@expo/vector-icons'; 
 import { useNavigation } from "@react-navigation/native";
-import {REACT_APP_API_URL} from '@env'
+import { REACT_APP_API_URL } from "../utils/config";
 import axios from "axios";
 export default function EmBreve(props){
     const navigation = useNavigation();

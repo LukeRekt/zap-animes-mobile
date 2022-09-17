@@ -4,7 +4,7 @@ import { View,Text, StyleSheet, TouchableOpacity, Image, Button } from "react-na
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons'; 
-import {REACT_APP_API_URL} from '@env'
+import { REACT_APP_API_URL } from "../utils/config";
 
 export default function AnimeEpisodes(props){
     const navigation = useNavigation();

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { View,Text, TextInput, StyleSheet, Image, ScrollView, TouchableOpacity } from "react-native";
-import {REACT_APP_API_URL} from '@env'
+import { REACT_APP_API_URL } from "../utils/config";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 

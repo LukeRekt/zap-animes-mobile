@@ -3,7 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useState } from "react";
 import { View,Text, StyleSheet, Image, ScrollView, SafeAreaView, SectionList } from "react-native";
 import AnimeEpisodes from "../components/AnimeEpisodes";
-import {REACT_APP_API_URL} from '@env'
+import { REACT_APP_API_URL } from "../utils/config";
 import { FontAwesome } from '@expo/vector-icons'; 
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import AnimeTemas from "../components/AnimeTemas";

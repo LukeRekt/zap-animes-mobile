@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {Button,TouchableOpacity, View,Text, StyleSheet, Dimensions, Image, ScrollView, ActivityIndicator } from "react-native";
-import {REACT_APP_API_URL} from '@env'
+import { REACT_APP_API_URL } from "../utils/config";
 import Carousel from "react-native-snap-carousel";
 import EmBreve from "../components/EmBreve";
 import * as Updates from 'expo-updates';

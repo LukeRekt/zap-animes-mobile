@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View,Text, StyleSheet, ScrollView, TextInput, Button, TouchableOpacity } from "react-native";
+import { AuthContext } from "../context/AuthContext";
 
 
 
 export default function LoginForm(){
+    const {login, logout, userInfo, isLogged} = useContext(AuthContext);
     return (
         <View style={styles.container}>
             <View style={styles.loginForm}>
@@ -21,13 +23,14 @@ export default function LoginForm(){
         placeholder={'Digite sua senha'}
       />
       
-      <TouchableOpacity 
+      <TouchableOpacity onPress={() => {login("lucasrsl12@gmail.com", "Macacoazul2010@")}}
       style={styles.botaoContainer}>
         <Text style={styles.botaoTexto}>
         LOGIN
         </Text>
       </TouchableOpacity>
             </View>
+
         
         </View>
     )
