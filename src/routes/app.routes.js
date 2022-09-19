@@ -10,11 +10,19 @@ import Discovery from "../pages/Discovery";
 import NewAnimes from "../pages/NewAnimes";
 import { createStackNavigator } from "@react-navigation/stack";
 import {ContactStackNavigator, DiscoveryStackNavigator, ListStackNavigator, MainStackNavigator, NewAnimeStackNavigator, PrimeiraTelaTeste, ProfileStackNavigator} from "./CustomNavigation";
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 // const {Navigator, Screen} = createBottomTabNavigator();
 
 
 const Tab = createBottomTabNavigator();
 export default function AppRoutes(){
+    const setTabBarVisibility = route => {
+        const routeName = getFocusedRouteNameFromRoute(route) ?? 'Feed';
+        if(routeName == "AnimeEpisodeScreen"){
+            return "none"
+        }
+     }
+
     return (
         
         <Tab.Navigator
@@ -26,21 +34,23 @@ export default function AppRoutes(){
                  
                })}>
         <Tab.Screen name="Home" component={MainStackNavigator} 
-        options={{
+        options={({route}) =>({
             tabBarIcon: () => {
                 return <Feather name="home" size={25} color="rgba(255, 255, 255, .8)"/>
                 
             },
             tabBarStyle: {
                 backgroundColor: '#181829',
-                borderTopColor: 'rgba(255, 255, 255, .8)'
+                borderTopColor: 'rgba(255, 255, 255, .8)',
+                display: setTabBarVisibility(route)
               },
+              
               tabBarLabelStyle: {
                 fontSize: 12,
                 fontWeight: "bold",
             }
               
-        }}/>
+        })}/>
         <Tab.Screen name="Minha Lista" component={ListStackNavigator} 
         options={{
             tabBarIcon: () => {
@@ -99,6 +109,10 @@ export default function AppRoutes(){
         }}/>
       </Tab.Navigator>
          )
+
+
+
+
 
         }
 

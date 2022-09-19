@@ -28,11 +28,13 @@ const MainStackNavigator = () => {
       <Stack.Screen name="HomeScreen" component={Home} />
       <Stack.Screen name="SearchScreen" component={SearchPage} />
       <Stack.Screen name="AnimeScreen" component={PageAnime} />
-      <Stack.Screen name="AnimeEpisodeScreen" component={PageEpisode} options={{ headerShown: false }}/>
+      <Stack.Screen name="AnimeEpisodeScreen" component={PageEpisode} options={{ headerShown: false, }}/>
+      
       
     </Stack.Navigator>
   );
 }
+
 const ListStackNavigator = () => {
     return (
       <Stack.Navigator

@@ -1,5 +1,5 @@
 import {View,Text, StyleSheet, Image, TouchableOpacity, Button} from "react-native";
-import VideoPlayer from "../components/VideoPlayer";
+import VideoPlayerComponent from "../components/VideoPlayer";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Feather } from '@expo/vector-icons'; 
 import { useEffect, useState } from "react";
@@ -27,7 +27,7 @@ export default function PageEpisode(props){
 
     return (
         <View style={styles.container}>
-          <VideoPlayer video={`${REACT_APP_API_URL}/${video}`}/>
+          <VideoPlayerComponent video={`${REACT_APP_API_URL}/${video}`}/>
           <View style={styles.botoesContainer}>
             <TouchableOpacity style={styles.botoes} onPress={() => setVideo(props.route.params.video)}><Text style={styles.texto}>Legendado</Text></TouchableOpacity>
             {props.route.params.videoDublado == "nao" ? (<TouchableOpacity style={styles.botoes} onPress={() => alert("Dublagem indisponível")}><Text style={styles.texto}>Sem Dublagem</Text></TouchableOpacity>) : (<TouchableOpacity style={styles.botoes} onPress={() => setVideo(props.route.params.videoDublado)}><Text style={styles.texto}>Dublado</Text></TouchableOpacity>)}<TouchableOpacity style={styles.botoes} onPress={() => setVideo(props.route.params.videoDublado)}><Text style={styles.texto}>Dublado</Text></TouchableOpacity>
