@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import {Button,TouchableOpacity, View,Text, StyleSheet, Dimensions, Image } from "react-native";
 import { Video, AVPlaybackStatus } from 'expo-av';
 import * as ScreenOrientation from 'expo-screen-orientation';
@@ -22,13 +22,39 @@ export default function VideoPlayerComponent(props){
 
 
     const video = React.useRef(null);
-    const [status, setStatus] = React.useState({});
+    const [tempoTotal, setTempoTotal] = useState();
+    const [tempoAtual, setTempoAtual] = useState();
+    const [test, setteste] = useState();
     const refVideo2 = useRef(null)
     const [inFullscreen2, setInFullsreen2] = useState(false)
+
+    const update = useCallback(status => {
+      // console.log(status.durationMillis)
+      
+      setTempoTotal(Math.floor(status.durationMillis / 1000))
+      setTempoAtual(Math.floor(status.positionMillis / 1000));
+    })
+
+    const calc = () => {
+      console.log("rodando")
+      return tempoAtual
+    }
      
     return (
         <View style={styles.container}>
-          <View style={styles.teste}></View>
+          <TouchableOpacity onPress={() => refVideo2.current.setPositionAsync(props.fimAbertura * 1000)} style={{display: tempoAtual >= props.inicioAbertura && tempoAtual <= props.fimAbertura ? "none" : "none",
+        backgroundColor: "rgba(255, 255, 255, 0.6)",
+        borderRadius: 50,
+        width: "1%",
+        position: "absolute",
+        height:50,
+        zIndex: 9999,
+        bottom: 40,
+        justifyContent: "center",
+        alignItems: "center",
+        right: 1,}}>
+          <Text style={{textAlign: "center", fontSize: 10}}>PULAR ABERTURA</Text>
+        </TouchableOpacity>
         {/* <Video
           ref={video}
           style={styles.video}
@@ -41,11 +67,11 @@ export default function VideoPlayerComponent(props){
           isLooping
           onPlaybackStatusUpdate={status => setStatus(() => status)}
         /> */}
+        
            <VideoPlayer
         videoProps={{
           shouldPlay: false,
           resizeMode: ResizeMode.CONTAIN,
-        
           source: {
             uri: `${props.video}`,
           },
@@ -74,7 +100,9 @@ export default function VideoPlayerComponent(props){
           height: inFullscreen2 ? Dimensions.get('window').width : 200,
           width: inFullscreen2 ? Dimensions.get('window').height : 400,
         }}
+        playbackCallback={update}
       />
+      {console.log(props)} 
       </View>
     );
 
@@ -90,13 +118,15 @@ const styles = StyleSheet.create({
         height: 200,
         
       },
-      teste:{
+      videoOverlay:{
+        // display: tempoAtual <= 10 ? "none" : "flex",
         backgroundColor: "red",
-        width: "100%",
+        width: "50%",
         position: "absolute",
-        height:100,
+        height:50,
         zIndex: 9999,
-        top: 10,
+        bottom: 40,
+        right: 1,
     },
 
 })
