@@ -42,10 +42,10 @@ export default function VideoPlayerComponent(props){
      
     return (
         <View style={styles.container}>
-          <TouchableOpacity onPress={() => refVideo2.current.setPositionAsync(props.fimAbertura * 1000)} style={{display: tempoAtual >= props.inicioAbertura && tempoAtual <= props.fimAbertura ? "none" : "none",
+          <TouchableOpacity onPress={() => refVideo2.current.setPositionAsync(props.fimAbertura * 1000)} style={{display: tempoAtual >= props.inicioAbertura && tempoAtual <= props.fimAbertura ? "flex" : "none",
         backgroundColor: "rgba(255, 255, 255, 0.6)",
         borderRadius: 50,
-        width: "1%",
+        width: "50%",
         position: "absolute",
         height:50,
         zIndex: 9999,
@@ -53,7 +53,7 @@ export default function VideoPlayerComponent(props){
         justifyContent: "center",
         alignItems: "center",
         right: 1,}}>
-          <Text style={{textAlign: "center", fontSize: 10}}>PULAR ABERTURA</Text>
+          <Text style={{textAlign: "center", fontSize: 15}}>PULAR ABERTURA</Text>
         </TouchableOpacity>
         {/* <Video
           ref={video}
