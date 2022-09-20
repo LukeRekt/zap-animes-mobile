@@ -5,6 +5,7 @@ import { REACT_APP_API_URL } from "../utils/config";
 import Carousel from "react-native-snap-carousel";
 import EmBreve from "../components/EmBreve";
 import * as Updates from 'expo-updates';
+import HomeNews from "../components/HomeNewsButton";
 
 const SLIDER_WIDTH = Dimensions.get('window').width
 const ITEM_WIDTH = SLIDER_WIDTH * 0.45
@@ -102,6 +103,7 @@ export default function Home({navigation}){
     return (
         <ScrollView style={styles.container}>
             <EmBreve idAnime={6}/>
+            <HomeNews/>
             {/* <Text style={{color: "white"}}>Home</Text> */}
             <Text style={styles.texto}>OS MAIS TOPS DO ZAP</Text>
             

@@ -9,13 +9,7 @@ import { REACT_APP_API_URL } from "../../utils/config";
 
 export default function UserProfile(){
     const {logout, userInfo, isLogged} = useContext(AuthContext);
-
-
-
-    
     return (
-        
-            
                 <View style={styles.userPic}>
                     <TouchableOpacity onPress={() => {logout()}} style={styles.logoutIcone}>
                     <Entypo  name="log-out" size={40} color="black" />
