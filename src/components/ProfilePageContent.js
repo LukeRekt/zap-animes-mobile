@@ -6,6 +6,7 @@ import { REACT_APP_API_URL } from "../utils/config";
 import { Entypo } from '@expo/vector-icons';
 import UserProfile from "./Perfil/UserPofile";
 import UserWatched from "./Perfil/UserWatched";
+import SwipeTabs from "./Perfil/SwipeTabs";
 
 
 export default function ProfilePageContent(){
@@ -15,6 +16,7 @@ export default function ProfilePageContent(){
             <View style={styles.scrollContainer}>
                 <UserProfile/>
                 <UserWatched/>
+                <SwipeTabs/>
             </View>
         </ScrollView>
     //         </View>)}
