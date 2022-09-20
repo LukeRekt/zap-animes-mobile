@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import {Button,TouchableOpacity, View,Text, StyleSheet, Dimensions, Image } from "react-native";
+import {Button,TouchableOpacity, View,Text, StyleSheet, Dimensions, Image, ScrollView } from "react-native";
 import { Video, AVPlaybackStatus } from 'expo-av';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import VideoPlayer from 'expo-video-player'
@@ -27,6 +27,7 @@ export default function VideoPlayerComponent(props){
     const [test, setteste] = useState();
     const refVideo2 = useRef(null)
     const [inFullscreen2, setInFullsreen2] = useState(false)
+    const refScrollView = useRef(null)
 
     const update = useCallback(status => {
       // console.log(status.durationMillis)
@@ -42,6 +43,17 @@ export default function VideoPlayerComponent(props){
      
     return (
         <View style={styles.container}>
+             <ScrollView
+      scrollEnabled={!inFullscreen2}
+      ref={refScrollView}
+      onContentSizeChange={() => {
+        if (inFullscreen2) {
+          refScrollView.current.scrollToEnd({ animated: true })
+        }
+      }}
+      style={styles.container}
+      contentContainerStyle={styles.contentContainer}
+    ></ScrollView>
           <TouchableOpacity onPress={() => refVideo2.current.setPositionAsync(props.fimAbertura * 1000)} style={{display: tempoAtual >= props.inicioAbertura && tempoAtual <= props.fimAbertura ? "flex" : "none",
         backgroundColor: "rgba(255, 255, 255, 0.6)",
         borderRadius: 50,
@@ -84,7 +96,7 @@ export default function VideoPlayerComponent(props){
             console.log("teste")
             setStatusBarHidden(true, 'fade')
             setInFullsreen2(!inFullscreen2)
-            await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE_LEFT)
+            await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE)
             refVideo2.current.setStatusAsync({
               shouldPlay: true,
             })
@@ -92,13 +104,13 @@ export default function VideoPlayerComponent(props){
           exitFullscreen: async () => {
             setStatusBarHidden(false, 'fade')
             setInFullsreen2(!inFullscreen2)
-            await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT)
+            await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT)
           },
         }}
         style={{
           videoBackgroundColor: 'black',
-          height: inFullscreen2 ? Dimensions.get('window').width : 200,
-          width: inFullscreen2 ? Dimensions.get('window').height : 400,
+           height: inFullscreen2 ? Dimensions.get('window').height : 200,
+           width: inFullscreen2 ? Dimensions.get('window').width : 400,
         }}
         playbackCallback={update}
       />
@@ -110,12 +122,13 @@ export default function VideoPlayerComponent(props){
 
 const styles = StyleSheet.create({
       container:{
-        width:"100%",
+        width: "100%"
       },
       video: {
         alignSelf: 'center',
         width: "100%",
         height: 200,
+        flex:1
         
       },
       videoOverlay:{
