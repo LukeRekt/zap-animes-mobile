@@ -1,12 +1,22 @@
 import React from "react";
-import { View,Text } from "react-native";
+import { View,Text, ScrollView } from "react-native";
+import CardNoticias from "../components/Noticias/CardNoticias";
 
 
 export default function NewsPage(){
     return (
-        <View style={{backgroundColor: "#151538", height:"100%"}}>
-            <Text style={{color: "white"}}>Aqui vao ficar as notícias :P</Text>
-        </View>
+        <ScrollView style={{backgroundColor: "#151538", height:"100%"}}>
+            <View style={{alignItems: "center"}}>
+            <Text style={{color: "white", fontSize: 20}}>Aqui vao ficar as notícias :P</Text>
+            <CardNoticias/>
+            <CardNoticias/>
+            <CardNoticias/>
+            <CardNoticias/>
+            <CardNoticias/>
+            <CardNoticias/>
+            <CardNoticias/>
+            </View>
+        </ScrollView>
         
     )
 

@@ -50,6 +50,7 @@ export default function MyList(){
         }}
       />
 <View style={styles.teste2}></View>
+<Text style={styles.testeTexto}>Teste player de vídeo</Text>
         </View>
         
     )
@@ -75,4 +76,9 @@ const styles = StyleSheet.create({
         width: "100%",
         height:100,
     },
+    testeTexto:{
+      fontSize: 30,
+      color: "white",
+      textAlign: "center"
+    }
 })
