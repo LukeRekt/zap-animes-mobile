@@ -34,12 +34,12 @@ export default function CardNoticias(){
 const styles = StyleSheet.create({
     container:{
         backgroundColor: "#181829",
-        width: "98%",
+        width: "100%",
         height: 210,
         marginTop: 5,
-        borderRadius: 5,
         borderWidth:1,
-        borderColor: "rgba(255,255,255,.08)",
+        borderTopColor: "rgba(255,255,255,.08)",
+        borderBottomColor: "rgba(255,255,255,.08)",
         flexDirection: "column"
     },
     tituloNoticia:{
