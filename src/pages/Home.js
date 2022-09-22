@@ -6,6 +6,7 @@ import Carousel from "react-native-snap-carousel";
 import EmBreve from "../components/EmBreve";
 import * as Updates from 'expo-updates';
 import HomeNews from "../components/HomeNewsButton";
+import ShareHomeComponent from "../components/ShareHomeComponent";
 
 const SLIDER_WIDTH = Dimensions.get('window').width
 const ITEM_WIDTH = SLIDER_WIDTH * 0.45
@@ -64,7 +65,7 @@ export default function Home({navigation}){
                 setNovosAnimes(res.data.animes)
             })
     }, [REACT_APP_API_URL])
-
+    
     //CAROUSEL COMÉDIA
     const [animesComedia, setAnimesComedia] = useState();
     useEffect(() => {
@@ -129,6 +130,7 @@ export default function Home({navigation}){
                activeSlideAlignment="start" 
            />
            </View>)}
+           {/* <ShareHomeComponent/> */}
             <Text style={styles.texto}>COMÉDIA</Text>
             {!animesComedia ? (<ActivityIndicator size={70} color="#fc6203" />) : (            <View style={styles.containerEpisodios}>
             <Carousel
