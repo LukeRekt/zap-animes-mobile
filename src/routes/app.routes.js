@@ -105,7 +105,8 @@ export default function AppRoutes(){
               tabBarLabelStyle: {
                 fontSize: 12,
                 fontWeight: "bold",
-            }
+            },
+            tabBarHideOnKeyboard: true,
         }}/>
       </Tab.Navigator>
          )
