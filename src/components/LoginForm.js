@@ -112,15 +112,21 @@ export default function LoginForm(){
             
         </View>) : (<></>)}
         
-      
-       <TouchableOpacity onPress={() => {handleRegister()}}
+      {hasSixChar && hasLowerChar && hasUpperChar && hasNumber && hasSixChar ? (      <TouchableOpacity onPress={() => {handleRegister()}}
        style={styles.botaoContainer}>
          <Text style={styles.botaoTexto}>
          REGISTRAR
          </Text>
-       </TouchableOpacity>
+       </TouchableOpacity>) : (
+       <TouchableOpacity
+       style={styles.botaoContainer}>
+         <Text style={styles.botaoTextoErrado}>
+         REGISTRAR
+         </Text>
+       </TouchableOpacity>)}
+ 
        <TouchableOpacity>
-       <Text onPress={() => setLoginState(!loginState)} style={styles.textoRegistro}>Ja tem uma conta ?</Text>
+       <Text onPress={() => setLoginState(!loginState)} style={styles.textoRegistro}>Já tem uma conta ?</Text>
        </TouchableOpacity>
        
              </View>)}
@@ -183,6 +189,16 @@ const styles = StyleSheet.create({
     botaoTexto:{
         color:"black",
         backgroundColor: "#ffbe63",
+        fontSize: 20,
+        paddingHorizontal: 15,
+        paddingVertical: 5,
+        width: "90%",
+        borderRadius: 20,
+        textAlign: "center"
+    },
+    botaoTextoErrado: {
+        color:"black",
+        backgroundColor: "rgba(255, 221, 173, 0.6)",
         fontSize: 20,
         paddingHorizontal: 15,
         paddingVertical: 5,
