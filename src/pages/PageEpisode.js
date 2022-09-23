@@ -1,4 +1,4 @@
-import {View,Text, StyleSheet, Image, TouchableOpacity, Button} from "react-native";
+import {View,Text, StyleSheet, Image, TouchableOpacity,ToastAndroid, Button} from "react-native";
 import VideoPlayerComponent from "../components/VideoPlayer";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Feather } from '@expo/vector-icons'; 
@@ -24,7 +24,6 @@ export default function PageEpisode(props){
       })
   }, [props, REACT_APP_API_URL])
 
-
     return (
         <View style={styles.container}>
           <VideoPlayerComponent inicioAbertura={props.route.params.inicioAbertura} fimAbertura={props.route.params.fimAbertura} video={`${REACT_APP_API_URL}/${video}`}/>
@@ -39,9 +38,9 @@ export default function PageEpisode(props){
           <View style={styles.sinopseEp}>
           {!props.route.params.sinopseEp ? (<ReadMore texto="Sinopse indisponível"/>) : (<ReadMore texto={props.route.params.sinopseEp}/>)}
           </View>
-          <View style={styles.comentariosEp}>
+          <TouchableOpacity onPress={() => ToastAndroid.show('Função em desenvolvimento! :P', ToastAndroid.LONG)} style={styles.comentariosEp}>
       <Text style={styles.comentariosEpTexto}><Ionicons name="chatbox-ellipses-outline" size={24} color="white" /> Comentários - 99024</Text>
-          </View>
+          </TouchableOpacity>
 
           <View style={styles.proximoEpContainer}>
           <Text style={styles.proximoEpTexto}>Proximo Episódio</Text>
@@ -59,7 +58,7 @@ export default function PageEpisode(props){
             <Text style={styles.proximoEpCardTexto}>T{postab.temporada} E{postab.numero} - {postab.nome}</Text>
             </View>
           </TouchableOpacity>)}
-          <TouchableOpacity onPress={() => alert("EM DESENVOLVIMENTO!!!")}>
+          <TouchableOpacity onPress={() => ToastAndroid.show('Função em desenvolvimento! :P', ToastAndroid.LONG)}>
           <Text style={styles.todosEpTexto} >TODOS OS EPISÓDIOS</Text>
           </TouchableOpacity>
           

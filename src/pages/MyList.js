@@ -15,6 +15,7 @@ export default function MyList(){
         
         <View style={{backgroundColor: "#151538", height:"100%"}}>
             <View style={styles.teste}></View>
+            {alert("Essa pagina esta sendo utilizada para testar algumas funcoes do Player. IGNORAR")}
             <VideoPlayer
         videoProps={{
           shouldPlay: false,
