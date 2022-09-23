@@ -185,7 +185,8 @@ const styles = StyleSheet.create({
     animeInfosTexto:{
         color: "white",
         margin: 5,
-        fontSize: 18
+        fontSize: 18,
+        fontFamily: "OpenSans_400Regular",
     },
     animeInfosTextoBaixo:{
         color: "#ffbe63",
@@ -197,6 +198,6 @@ const styles = StyleSheet.create({
         marginTop: 15,
         marginBottom: 10,
         fontSize: 20,
-        fontFamily: "Roboto"
+        fontFamily: "OpenSans_400Regular"
     }
 })

@@ -41,5 +41,6 @@ const styles = StyleSheet.create({
     texto:{
         fontSize: 25,
         marginLeft: 50,
+        fontFamily: "OpenSans_400Regular"
     }
     })

@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         borderColor: "rgba(255, 255, 255, .05)",
         borderWidth: 1,
+        fontFamily: "OpenSans_400Regular"
     },
     animeCard:{
         flex:1,
@@ -168,6 +169,7 @@ const styles = StyleSheet.create({
     },
     animeLancamentoText:{
         fontSize:25,
+        fontFamily: "OpenSans_400Regular"
     },
     animeCompletoText:{
         fontSize:32,
@@ -177,7 +179,8 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         marginBottom: 10,
         color: "white",
-        fontWeight: "400"
+        fontWeight: "400",
+        fontFamily: "OpenSans_400Regular"
     },
     animeEpEsFi:{
         flex:1,
@@ -205,7 +208,7 @@ const styles = StyleSheet.create({
     animeProducersTxt:{
         color: "#ffbe63",
         marginBottom: 8,
-        
+        fontFamily: "OpenSans_400Regular"
     },
     animeProducersTxtScnd:{
         color: "rgba(255, 255, 255, .5)",
@@ -216,10 +219,12 @@ const styles = StyleSheet.create({
     textoEps:{
         color: "#ffbe63",
         paddingTop: 15,
+        fontFamily: "OpenSans_400Regular"
     },
     textoEpsScn:{
         color:"#fff",
         fontSize: 25,
+        fontFamily: "OpenSans_400Regular"
     },
     animeSinopse:{
         width: "98%",
@@ -235,11 +240,13 @@ const styles = StyleSheet.create({
     animeSinopseTitulo:{
         fontSize: 30,
         color: "white",
-        paddingLeft: 10
+        paddingLeft: 10,
+        fontFamily: "OpenSans_400Regular"
     },
     animeSinopseTexto:{
         padding: 10,
         color: "rgba(255, 255, 255, .5)",
+        fontFamily: "OpenSans_400Regular"
     },
     Episodios:{
     },
@@ -259,6 +266,7 @@ const styles = StyleSheet.create({
         marginVertical: 8
       },
       title: {
-        fontSize: 24
+        fontSize: 24,
+        
       }
 })

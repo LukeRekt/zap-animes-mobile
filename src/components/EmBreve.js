@@ -84,13 +84,14 @@ imagemOverlay:{
     backgroundColor: "rgba(0, 0, 0, 0.2)"
 },
 imagemOverlayTexto:{
-    fontSize: 25,
+    fontSize: 23,
     color: "white",
     textShadowColor: "black",
     textShadowRadius: 4,
     marginLeft: 5,
     marginTop: 160,
-    fontWeight: "600"
+    fontWeight: "600",
+    fontFamily: "OpenSans_600SemiBold"
 },
 imagemOverlayTextoDescricao:{
     color: "white",
@@ -117,6 +118,7 @@ botaoTrailerTexto:{
     borderRadius: 1,
     borderColor: "rgba(0, 0, 0, 0.1)",
     borderWidth: 1,
+    fontFamily: "OpenSans_500Medium"
 },
 tinyLogo: {
     width: "100%",
