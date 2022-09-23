@@ -36,6 +36,42 @@ export const AuthProvider = ({children}) => {
         setIsLoading(false);
 
     }
+    // const register = ( {username, email, password, userAvatar, userBanner}) => {
+    //     console.log(email);
+    //     console.log(password)
+    //     console.log(userAvatar);
+    //     console.log(userBanner)
+    //     setIsLoading(true)
+    //     const user = { username, email, password, userAvatar, userBanner };
+    //     axios.post(`${REACT_APP_API_URL}/registrar`, {
+    //         user
+    //     })
+    //     .then(res => {
+    //         console.log(`${res}`);
+    //     })
+    //     .catch(e => {
+    //         console.log(`${e}`);
+    //     });
+    //     setIsLoading(false);
+
+    // }
+    const register = async ({ username, email, password, userAvatar, userBanner } = {}) => {
+        const user = { username, email, password, userAvatar, userBanner };
+    
+        try {
+            const res = await fetch(`${REACT_APP_API_URL}/registrar`, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(user),
+            });
+            return await res.json();
+        } catch (err) {
+            throw new Error(`Nao foi possivel registrar. ${err}`);
+        }
+    };
 
     const logout = () => {
         setIsLoading(true);
@@ -68,7 +104,7 @@ export const AuthProvider = ({children}) => {
     }, []);
 
     return (
-        <AuthContext.Provider value={{login, logout, isLoading, userToken, userInfo, isLogged}}>
+        <AuthContext.Provider value={{login, register, logout, isLoading, userToken, userInfo, isLogged}}>
             {children}
         </AuthContext.Provider>
     )
