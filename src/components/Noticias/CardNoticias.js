@@ -1,33 +1,33 @@
 import React, { useContext, useEffect, useState } from "react";
 import { View,Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
 
 
 export default function CardNoticias(){
-  
 
+
+  const navigation = useNavigation();
+
+  const dados = {
+    imagem: `https://i.insider.com/61d786c637afc20019ac999b?width=700`,
+    titulo: "TITULO DA NOTICIA",
+    descricao: `WORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESS WORK IN PROGRESSWORK IN PROGRESS WORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESSWORK IWORK IN PROGRESSN PROGRESSWORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESSWORK WORK IN PROGRESSIN PROGRESS WORK IN PROGRESSWORK IN PROGRESS WORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESSWORK IN... `,
+
+  }
     return (   
                 <View style={styles.container}>
+                    <TouchableOpacity onPress={() => navigation.navigate("ReadNewsPageScreen", dados)}>
                     <View style={styles.topoContainer}>
-                    <Image style={styles.imagemCard} source={ {uri: `https://i.insider.com/61d786c637afc20019ac999b?width=700`}}/>
-                    <Text style={styles.tituloNoticia}>TITULO DA NOTICIA</Text>
+                    <Image style={styles.imagemCard} source={ {uri: `${dados.imagem}`}}/>
+                    <Text style={styles.tituloNoticia}>{dados.titulo}</Text>
                     </View>
-               <Text style={styles.texto}>WORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESS
-               WORK IN PROGRESSWORK IN PROGRESS
-               WORK IN PROGRESSWORK IN PROGRESS
-               WORK IN PROGRESSWORK IWORK IN PROGRESSN PROGRESS
-               WORK IN PROGRESSWORK IN PROGRESS
-               WORK IN PROGRESSWORK IN PROGRESS
-               WORK IN PROGRESSWORK WORK IN PROGRESSIN PROGRESS
-               WORK IN PROGRESSWORK IN PROGRESS
-               WORK IN PROGRESSWORK IN PROGRESS
-               WORK IN PROGRESSWORK IN PROGRESS
-               WORK IN PROGRESSWORK IN PROGRESS
-               WORK IN PROGRESSWORK IN PROGRESS
-               WORK IN PROGRESSWORK IN... 
+               <Text style={styles.texto}>
+                {dados.descricao}
                </Text> 
-               <TouchableOpacity style={styles.botaoLerMais}>
+               <View style={styles.botaoLerMais}>
                 <Text style={styles.botaoLerMaisTexto}>COTINUAR LENDO</Text>
+                </View>
                 </TouchableOpacity>
                 </View>
     )

@@ -10,6 +10,7 @@ import PageEpisode from "../pages/PageEpisode";
 import Header from "../components/Header";
 import SearchPage from "../pages/SearchPage";
 import NewsPage from "../pages/NewsPage";
+import ReadNewsPage from "../pages/ReadNewsPage";
 
 
 
@@ -31,6 +32,7 @@ const MainStackNavigator = () => {
       <Stack.Screen name="AnimeScreen" component={PageAnime} />
       <Stack.Screen name="AnimeEpisodeScreen" component={PageEpisode} options={{ headerShown: false, }}/>
       <Stack.Screen name="NewsPageScreen" component={NewsPage} />
+      <Stack.Screen name="ReadNewsPageScreen" component={ReadNewsPage} />
       
       
     </Stack.Navigator>
