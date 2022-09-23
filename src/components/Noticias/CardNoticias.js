@@ -8,7 +8,10 @@ export default function CardNoticias(){
 
     return (   
                 <View style={styles.container}>
+                    <View style={styles.topoContainer}>
+                    <Image style={styles.imagemCard} source={ {uri: `https://i.insider.com/61d786c637afc20019ac999b?width=700`}}/>
                     <Text style={styles.tituloNoticia}>TITULO DA NOTICIA</Text>
+                    </View>
                <Text style={styles.texto}>WORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESS
                WORK IN PROGRESSWORK IN PROGRESS
                WORK IN PROGRESSWORK IN PROGRESS
@@ -33,24 +36,32 @@ export default function CardNoticias(){
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor: "#181829",
+        backgroundColor: "#191919",
         width: "100%",
-        height: 210,
-        marginTop: 5,
+        height: 410,
+        marginTop: 10,
         borderWidth:1,
         borderTopColor: "rgba(255,255,255,.08)",
         borderBottomColor: "rgba(255,255,255,.08)",
         flexDirection: "column"
+    },
+    topoContainer:{
+        alignItems: "center"
+    },  
+    imagemCard:{
+        marginTop: 10,
+        width: "95%",
+        height: 200
     },
     tituloNoticia:{
         fontSize: 20,
         borderBottomWidth: 1,
         borderColor: "rgba(255,255,255,.04)",
         color: "white",
-        marginLeft: 10,
+        marginTop: 5,
     },
     texto:{
-        color: "red",
+        color: "#ECDBBA",
         fontSize: 11,
         marginLeft: 10,
         marginTop: 10,
@@ -63,7 +74,7 @@ const styles = StyleSheet.create({
     },
     botaoLerMaisTexto:{
         color: "black",
-        backgroundColor: "#ffbe63",
+        backgroundColor: "#C84B31",
         textAlign: "center",
         marginRight: 10,
         paddingHorizontal: 10,
