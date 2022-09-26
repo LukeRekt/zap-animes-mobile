@@ -69,8 +69,9 @@ const styles = StyleSheet.create({
         
     },
     botaoLerMais:{
-       alignSelf: "flex-end" ,
-       marginTop: 5,
+       position: "absolute",
+       bottom: -33,
+       right: 10,
     },
     botaoLerMaisTexto:{
         color: "black",
