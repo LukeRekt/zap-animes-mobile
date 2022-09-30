@@ -14,10 +14,14 @@ export default function UserProfile(){
                     <TouchableOpacity onPress={() => {logout()}} style={styles.logoutIcone}>
                     <Entypo  name="log-out" size={40} color="black" />
                     </TouchableOpacity>
-                
+                {console.log(userInfo)}
                 <Image style={styles.banner} source={{ uri: `${REACT_APP_API_URL}/${userInfo.userBanner}`}}/>
                 <Image style={styles.imagem} source={{ uri: `${REACT_APP_API_URL}/${userInfo.userAvatar}`}}/>
-                <Text style={styles.texto}>{userInfo.username}</Text>
+                {userInfo.isAdmin === false ? (
+                <Text style={styles.texto}>{userInfo.username}</Text>) : (
+                    <Text style={styles.textoAdmin}>(Admin) {userInfo.username}</Text>
+                )}
+                
                 <Text style={{color: "grey", fontSize:15, marginBottom: 10}}>@{userInfo.username}</Text>
                <View style={styles.textoSeguidoresContainer}>
                <Text style={{color: "rgba(255,255,255,.8)", fontSize:19, marginBottom: 10, marginRight: 9}}>0 Seguindo</Text>
@@ -54,6 +58,11 @@ const styles = StyleSheet.create({
     },
     texto:{
         color: "white",
+        textAlign: "center",
+        fontSize: 30
+    },
+    textoAdmin:{
+        color: "red",
         textAlign: "center",
         fontSize: 30
     },
