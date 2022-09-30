@@ -114,7 +114,8 @@ const styles = StyleSheet.create({
       },
       comentariosEp:{
         marginTop: 20,
-        borderWidth: 2,
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
         borderTopColor: "rgba(255, 255, 255, .05)",
         borderBottomColor: "rgba(255, 255, 255, .05)"
         

@@ -10,9 +10,11 @@ export default function CardNoticias(){
   const navigation = useNavigation();
 
   const dados = {
-    imagem: `https://i.insider.com/61d786c637afc20019ac999b?width=700`,
-    titulo: "TITULO DA NOTICIA",
-    descricao: ` WORK IN PROGR ESSWORK IN PROGR ESSWORK IN PROGRESS WORK IN PROGRESSWORK IN PROGRESS WORK IN PROGRES SWORK IN PROGRES SWORK IN PROGRESSWORK IWORK IN PROGRESSN PROGRESSWORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESS WORK IN PROGRE SSWORK WORK IN PROGR ESSIN PROGRESS WORK IN PROGRESSWORK IN PROGRESS WORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRESSWORK IN PROGRE SSWORK IN PROGRESSWORK IN PROGRESSWORK IN... `,
+    imagem: `https://www.intoxianime.com/wp-content/uploads/2022/09/cs-6-980x450.jpg`,
+    titulo: "Urusei Yatsura – Remake da autora de InuYasha ganha trailer com OP e ED",
+    descricao: ` O site oficial da adaptação em anime de Urusei Yatsura liberou um novo trailer para a obra.
+    O vídeo trás novos detalhes da história e da relação dos protagonistas, além de dar uma prévia da abertura “AIUE” e do encerramento “Tokyo Shandy Rendezvous”, ambos cantados por MAISONdes.
+    O anime tem previsão de estreia para o dia 13 de outubro.... `,
 
   }
     return (   
