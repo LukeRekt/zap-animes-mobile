@@ -20,18 +20,21 @@ export default function PageEpisode(props){
     axios.get(`${REACT_APP_API_URL}/getanim/episodios/${props.route.params.temporada}/${props.route.params.id}/${props.route.params.numero + 1}`)//aaa
       .then(res => {
         setPostab(res.data.episodios)
-        setVideo("")
+        setVideo(props.route.params.video)
+        
       })
   }, [props, REACT_APP_API_URL])
 
     return (
         <View style={styles.container}>
-          <VideoPlayerComponent inicioAbertura={props.route.params.inicioAbertura} fimAbertura={props.route.params.fimAbertura} video={`${REACT_APP_API_URL}/${video}`}/>
+          <VideoPlayerComponent idAnime={props.route.params.id} episodio={props.route.params.numero} nomeEp={props.route.params.nome}
+           temporada={props.route.params.temporada} inicioAbertura={props.route.params.inicioAbertura}
+           animeImagem={props.route.params.animeImagem}
+            fimAbertura={props.route.params.fimAbertura} video={`${REACT_APP_API_URL}/${video}`}/>
           <View style={styles.botoesContainer}>
             <TouchableOpacity style={styles.botoes} onPress={() => setVideo(props.route.params.video)}><Text style={styles.texto}>Legendado</Text></TouchableOpacity>
             {props.route.params.videoDublado == "nao" ? (<TouchableOpacity style={styles.botoes} onPress={() => alert("Dublagem indisponível")}><Text style={styles.texto}>Sem Dublagem</Text></TouchableOpacity>) : (<TouchableOpacity style={styles.botoes} onPress={() => setVideo(props.route.params.videoDublado)}><Text style={styles.texto}>Dublado</Text></TouchableOpacity>)}<TouchableOpacity style={styles.botoes} onPress={() => setVideo(props.route.params.videoDublado)}><Text style={styles.texto}>Dublado</Text></TouchableOpacity>
           </View>
-          
           <View style={styles.animeInfos}>
           <Text style={styles.texto}>{props.route.params.nomeAnime}</Text>
           <Text style={styles.textoEp}>T{props.route.params.temporada} E{props.route.params.numero} - {props.route.params.nome}</Text>

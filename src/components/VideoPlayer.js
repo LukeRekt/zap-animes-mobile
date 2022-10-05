@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useContext, useEffect, useRef, useState } from "react";
 import {Button,TouchableOpacity, View,Text, StyleSheet, Dimensions, Image, ScrollView } from "react-native";
 import { Video, AVPlaybackStatus } from 'expo-av';
 import * as ScreenOrientation from 'expo-screen-orientation';
@@ -7,6 +7,8 @@ import VideoPlayer from 'expo-video-player'
 import { ResizeMode } from 'expo-av'
 import { setStatusBarHidden } from 'expo-status-bar'
 import { useNavigation } from "@react-navigation/native";
+import { AuthContext } from "../context/AuthContext";
+import { REACT_APP_API_URL } from "../utils/config";
 
 export default function VideoPlayerComponent(props){
 //https://helpincoding.com/rotate-expo-video-player-in-full-screen-mode/ <- Obrigado(a)
@@ -24,15 +26,16 @@ export default function VideoPlayerComponent(props){
     const video = React.useRef(null);
     const [tempoTotal, setTempoTotal] = useState();
     const [tempoAtual, setTempoAtual] = useState();
-    const [test, setteste] = useState();
+    const [tempoReproducao, setTempoReproducao] = useState();
     const refVideo2 = useRef(null)
     const [inFullscreen2, setInFullsreen2] = useState(false)
     const refScrollView = useRef(null)
+    const {logout, userInfo, isLogged} = useContext(AuthContext);
 
     const update = useCallback(status => {
       // console.log(status.durationMillis)
       
-      setTempoTotal(Math.floor(status.durationMillis / 1000))
+      setTempoTotal(Math.floor(status.durationMillis / 1000));
       setTempoAtual(Math.floor(status.positionMillis / 1000));
     })
 
@@ -40,9 +43,33 @@ export default function VideoPlayerComponent(props){
       console.log("rodando")
       return tempoAtual
     }
+    useEffect(() => {
+   
+      
+      if(userInfo){
+        const variables = {
+          nomeUsuario: userInfo.username,
+          temporadaAnime: props.temporada,
+          episodioAnime: props.episodio,
+          idAnime: props.idAnime,
+           tempoTotal: tempoTotal,
+          nomeEp: props.nomeEp,
+          animeImagem: props.animeImagem,
+    
+        
+        }
+        axios.post(`${REACT_APP_API_URL}/getprogresso`,  variables, { withCredentials: true })
+        .then(res => {
+          setTempoReproducao(res.data.tempoAtual)
+            // setCarregandoFavoritos(false)
+        })
+      }
+      
+  }, [props.nomeEp, props.animeImagem])
      
     return (
         <View style={styles.container}>
+          {console.log(tempoReproducao)}
              <ScrollView
       scrollEnabled={!inFullscreen2}
       ref={refScrollView}
@@ -67,6 +94,22 @@ export default function VideoPlayerComponent(props){
         right: 1,}}>
           <Text style={{textAlign: "center", fontSize: 15}}>PULAR ABERTURA</Text>
         </TouchableOpacity>
+        {console.log(userInfo)}
+        {!userInfo ? (<></>) : ( <TouchableOpacity onPress={() => refVideo2.current.setPositionAsync(tempoReproducao * 1000)} style={{display: tempoAtual >= 1 && tempoAtual <= 7 ? "flex" : "none",
+        backgroundColor: "rgba(255, 255, 255, 0.6)",
+        borderRadius: 50,
+        width: "50%",
+        position: "absolute",
+        height:50,
+        zIndex: 9999,
+        bottom: 80,
+        justifyContent: "center",
+        alignItems: "center",
+        right: 1,}}>
+          <Text style={{textAlign: "center", fontSize: 15}}>CONTINUAR REPRODUCAO</Text>
+        </TouchableOpacity>)}
+       
+        
         {/* <Video
           ref={video}
           style={styles.video}
@@ -114,7 +157,6 @@ export default function VideoPlayerComponent(props){
         }}
         playbackCallback={update}
       />
-      {console.log(props)} 
       </View>
     );
 
@@ -129,7 +171,6 @@ const styles = StyleSheet.create({
         width: "100%",
         height: 200,
         flex:1
-        
       },
       videoOverlay:{
         // display: tempoAtual <= 10 ? "none" : "flex",

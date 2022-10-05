@@ -2,7 +2,7 @@ import { ResizeMode } from 'expo-av'
 import * as ScreenOrientation from 'expo-screen-orientation'
 import VideoPlayer from 'expo-video-player'
 import React, { useRef, useState } from "react";
-import { View,Text, StyleSheet } from "react-native";
+import { View,Text, StyleSheet, TouchableWithoutFeedback } from "react-native";
 import { Dimensions, ScrollView, } from 'react-native';
 import { setStatusBarHidden } from 'expo-status-bar'
 
@@ -15,7 +15,8 @@ export default function MyList(){
         
         <View style={{backgroundColor: "#151538", height:"100%"}}>
             <View style={styles.teste}></View>
-            {alert("Essa pagina esta sendo utilizada para testar algumas funcoes do Player. IGNORAR")}
+            <TouchableWithoutFeedback><View style={styles.teste}></View></TouchableWithoutFeedback>
+            {/* {alert("Essa pagina esta sendo utilizada para testar algumas funcoes do Player. IGNORAR")} */}
             <VideoPlayer
         videoProps={{
           shouldPlay: false,
